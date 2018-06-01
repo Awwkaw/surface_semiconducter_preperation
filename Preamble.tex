@@ -1,0 +1,87 @@
+
+%cool packages
+\usepackage[utf8]{inputenc}% That awesome utf8 characters
+\usepackage[T1]{fontenc}% Those nice fonts
+\usepackage{mathtools,amssymb,bm} %math
+\usepackage{siunitx} % typesetting for units
+\usepackage[draft,margin]{fixme} % for notes, remove draft if final version
+\usepackage{graphicx} % for inserting figures
+\usepackage{acronym} %for having acronyms
+\usepackage{tikz} % for drawing stuff
+\usepackage{pgfplots} %for plotting data or math functions
+\usepackage{xcolor} % for having nicer colours
+\usepackage{ifthen} % boolean checks
+
+%penalties for having clubs or widows
+\clubpenalty10000 
+\widowpenalty10000
+
+%cool memoir stuff
+%The cool memoir stuff is wrapped in a check. This is done to see if the document class actually supports it.
+
+\makeatletter%
+\@ifclassloaded{memoir}%
+  {%
+\newsubfloat{figure} %allowing sub figures
+\graphicspath{{./figures/}{../figures/}} % no need for those pesky folder extensions in the actual file
+  }%
+  {}%
+\makeatother%
+
+% new commands
+
+\newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}} %numbering equations in align* or aligned*
+
+\newcommand{colourscheme}[1]%
+{%
+        \ifthenelse{\eqal{#1}{1}}{%       
+                \definecolor{c1}{rgb}{0,0,0}
+                \definecolor{c2}{rgb}{0,0,0}
+                \definecolor{c3}{rgb}{0,0,0}
+                \definecolor{c4}{rgb}{0,0,0}
+                \definecolor{c5}{rgb}{0,0,0}
+                \definecolor{c6}{rgb}{0,0,0}
+                \definecolor{c7}{rgb}{0,0,0}
+                \definecolor{c8}{rgb}{0,0,0}
+                \definecolor{c9}{rgb}{0,0,0}
+                \definecolor{c10}{rgb}{0,0,0}
+                \definecolor{c11}{rgb}{0,0,0}
+                \definecolor{c12}{rgb}{0,0,0}
+                \definecolor{c13}{rgb}{0,0,0}
+                \definecolor{c14}{rgb}{0,0,0}
+                \definecolor{c15}{rgb}{0,0,0}
+                \definecolor{c16}{rgb}{0,0,0}
+        }%
+        {}
+        \ifthenelse{\eqal{#1}{2}}{%       
+                \definecolor{c1}{rgb}{0,0,0}
+                \definecolor{c2}{rgb}{0,0,0}
+                \definecolor{c3}{rgb}{0,0,0}
+                \definecolor{c4}{rgb}{0,0,0}
+                \definecolor{c5}{rgb}{0,0,0}
+                \definecolor{c6}{rgb}{0,0,0}
+                \definecolor{c7}{rgb}{0,0,0}
+                \definecolor{c8}{rgb}{0,0,0}
+                \definecolor{c9}{rgb}{0,0,0}
+                \definecolor{c10}{rgb}{0,0,0}
+                \definecolor{c11}{rgb}{0,0,0}
+                \definecolor{c12}{rgb}{0,0,0}
+                \definecolor{c13}{rgb}{0,0,0}
+                \definecolor{c14}{rgb}{0,0,0}
+                \definecolor{c15}{rgb}{0,0,0}
+                \definecolor{c16}{rgb}{0,0,0}
+        }%
+        {}
+
+} % this command creates some colours, based on the input. 
+
+
+
+%%%             PACKAGE CUSTOMIZATION START             %%%
+
+
+\usetikzlibrary{calc,patterns,shapes,arrows,positioning} %Cool libraries for drawing stuff
+
+\sisetup{exponent-product=\cdot, output-product =\cdot,per-mode=fraction,range-phrase=--}%Nicer way to present units
+
+%%%             PACKAGE CUSTOMIZATION END               %%%
