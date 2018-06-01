@@ -1,0 +1,12 @@
+# Fdb version 3
+["pdflatex"] 1527843829 "disp.tex" "disp.pdf" "disp" 1527844170
+  "../Preamble.tex" 1516222635 0 d41d8cd98f00b204e9800998ecf8427e ""
+  "/usr/share/texmf-dist/web2c/texmf.cnf" 1525432865 33365 b118b048154c25395e1bced26df2b0e5 ""
+  "/usr/share/texmf-var/web2c/pdftex/pdflatex.fmt" 1525432873 4231646 3d29757c538960bc0611c375a22fd935 ""
+  "disp.aux" 1527843836 8 a94a2480d3289e625eea47cd1b285758 ""
+  "disp.tex" 1527843826 80 7d6924b60add1642dd2e8a5bf928b3d2 ""
+  (generated)
+  "X.tex"
+  "disp.pdf"
+  "disp.log"
+  "disp.aux"
