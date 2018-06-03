@@ -1,2 +1,11 @@
 \documentclass{tikzposter}
 \usetheme{basic}
+\defineblockstyle{Justtitle}{
+        }{
+        \ifBlockHasTitle
+                \draw[color=framecolor, fill=blocktitlebgcolor,
+                rounded corners=\blockroundedcorners] (blocktitle.south west)
+                rectangle (blocktitle.north east);
+        \fi
+}
+\newcommand{\titleblock}[1]{\useblockstyle{Justtitle}\block{#1}{}\useblockstyle{Default}}
