@@ -8,4 +8,5 @@
 *.toc
 lecture_notes
 lecture_notes/*
-*.fdb_latexmk*.fls
+*.fdb_latexmk
+*.fls
