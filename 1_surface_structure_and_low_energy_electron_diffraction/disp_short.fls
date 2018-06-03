@@ -1,4 +1,4 @@
-PWD /home/tekc/Documents/Unigit/surface_semiconducter_preperation/surface_structure_and_low_energy_electron_diffraction
+PWD /home/tekc/Documents/Unigit/surface_semiconducter_preperation/1_surface_structure_and_low_energy_electron_diffraction
 INPUT /usr/share/texmf-dist/web2c/texmf.cnf
 INPUT /usr/share/texmf-var/web2c/pdftex/pdflatex.fmt
 INPUT disp_short.tex
@@ -282,6 +282,8 @@ INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmex10.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmex10.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmex10.tfm
+INPUT /usr/share/texmf-dist/fonts/tfm/public/ae/aebx12.tfm
+INPUT /usr/share/texmf-dist/fonts/tfm/public/ae/aer17.tfm
 INPUT /usr/share/texmf-dist/fonts/vf/public/ae/aebx12.vf
 INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmmib10.tfm
@@ -315,6 +317,12 @@ INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmu10.tfm
+INPUT /usr/share/texmf-dist/fonts/vf/public/ae/aebx12.vf
+INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
+INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmmib10.tfm
+INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmmib10.tfm
+INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmbsy10.tfm
+INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmbxti10.tfm
 INPUT disp_short.aux
 INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb
