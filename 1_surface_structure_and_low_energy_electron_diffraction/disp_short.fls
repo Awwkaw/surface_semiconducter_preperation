@@ -323,6 +323,10 @@ INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmmib10.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmmib10.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmbsy10.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmbxti10.tfm
+INPUT /usr/share/texmf-dist/fonts/vf/public/ae/aer17.vf
+INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmr17.tfm
+INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm
+INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmu10.tfm
 INPUT disp_short.aux
 INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb
