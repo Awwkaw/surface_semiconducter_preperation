@@ -1,0 +1,30 @@
+\documentclass[border = 1mm]{standalone}
+\input{../../../Preamble}
+        
+%tikz style figure
+% comment out for pgfplots style
+\begin{document}
+\begin{tikzpicture}
+        \foreach \x in {0,...,4}
+        \foreach \y in {0,...,2}
+        \filldraw[draw=c2,fill=c1] (\x,\y) circle (0.15);
+        \foreach \x in {0,4}
+        \foreach \y in {0,2}
+        \filldraw[draw=c2,fill=c1] (\x,\y) circle (0.25); 
+        \draw[color=c3, ->] (0,0) -> node[below] {$\vec{a}^*_1$} (4,0);
+        \draw[color=c3, ->] (0,0) -> node[left] {$\vec{a}^*_2$} (0,2);
+        \draw[color=c4, ->] (2,1) -> node[below] {$\vec{o}^*_1$} (3,1);
+        \draw[color=c4, ->] (2,1) -> node[left] {$\vec{o}^*_2$} (2,2);       
+\end{tikzpicture}
+\end{document}
+
+%pgfplots style picture
+% comment tikzstyle figure out to get pgfplots style
+\begin{document}
+\begin{tikzpicture}
+        \begin{axis}
+
+        \end{axis}
+\end{tikzpicture}
+\end{document}
+

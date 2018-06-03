@@ -1,0 +1,29 @@
+\documentclass[border = 1mm]{standalone}
+\input{../../../Preamble}
+        
+%tikz style figure
+% comment out for pgfplots style
+\begin{document}
+\begin{tikzpicture}
+        \foreach \x in {0,...,4}
+        \foreach \y in {0,2,4}
+        \filldraw[draw=c2,fill=c1] (\x,\y) circle (0.15);
+        \foreach \x in {0,2,4}
+        \foreach \y in {0,...,4}
+        \filldraw[draw=c2,fill=c1] (\x,\y) circle (0.15);
+        \foreach \x in {0,4}
+        \foreach \y in {0,4}
+        \filldraw[draw=c2,fill=c1] (\x,\y) circle (0.25); 
+\end{tikzpicture}
+\end{document}
+
+%pgfplots style picture
+% comment tikzstyle figure out to get pgfplots style
+\begin{document}
+\begin{tikzpicture}
+        \begin{axis}
+                
+        \end{axis}
+\end{tikzpicture}
+\end{document}
+
