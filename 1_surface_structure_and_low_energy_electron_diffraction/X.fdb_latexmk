@@ -1,9 +1,0 @@
-# Fdb version 3
-["pdflatex"] 1528057329 "X.tex" "X.pdf" "X" 1528057329
-  "/usr/share/texmf-dist/web2c/texmf.cnf" 1525432865 33365 b118b048154c25395e1bced26df2b0e5 ""
-  "/usr/share/texmf-var/web2c/pdftex/pdflatex.fmt" 1525432873 4231646 3d29757c538960bc0611c375a22fd935 ""
-  "X.aux" 1527842895 8 a94a2480d3289e625eea47cd1b285758 ""
-  "X.tex" 1527843791 462 33378c132efb767bd17b6746fc4ad698 ""
-  (generated)
-  "X.log"
-  "X.pdf"

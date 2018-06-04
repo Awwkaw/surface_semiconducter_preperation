@@ -1,6 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1528057813 "disp.tex" "disp.pdf" "disp" 1528057814
-  "../Preamble.tex" 1528057778 3627 86fd7930d4e541f3ec95f4bdad6170b0 ""
+["pdflatex"] 1528109812 "disp.tex" "disp.pdf" "disp" 1528109813
+  "../Preamble.tex" 1528109811 3822 412cd1c6d2ccd4b033603f95ce55839d ""
+  "../figures/1/leed_angle/leed_angle.pdf" 1528107396 17026 1b94f5817b57271563f49621d6d770e6 ""
   "/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1502678251 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/share/texmf-dist/fonts/map/pdftex/updmap/pdftex.map" 1520645099 2704162 7a0bfe1b6869e6081137f3dece8a4231 ""
@@ -32,6 +33,7 @@
   "/usr/share/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm" 1502678251 768 1321e9409b4137d6fb428ac9dc956269 ""
   "/usr/share/texmf-dist/fonts/tfm/public/cm/cmtt8.tfm" 1502678251 768 d7b9a2629a0c353102ad947dc9221d49 ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1502678251 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
+  "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb" 1502678251 36281 c355509802a035cadc5f15869451dcee ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1502678251 35752 024fb6c41858982481f6968b5fc26508 ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1502678251 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "/usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb" 1502678251 145408 43d44302ca7d82d487f511f83e309505 ""
@@ -228,10 +230,10 @@
   "/usr/share/texmf-dist/tex/plain/ifetex/ifetex.tex" 1522621847 1178 13842cd1b714a921af7920503db5625a ""
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1525432865 33365 b118b048154c25395e1bced26df2b0e5 ""
   "/usr/share/texmf-var/web2c/pdftex/pdflatex.fmt" 1525432873 4231646 3d29757c538960bc0611c375a22fd935 ""
-  "disp.aux" 1528057813 192 a4faa748c58463b7897274b0978661db ""
-  "disp.tex" 1528057803 1375 54894ffab99f3591f636ac233d0c941a ""
+  "disp.aux" 1528109813 192 a4faa748c58463b7897274b0978661db ""
+  "disp.tex" 1528109803 1414 42680fd3fe3429865cfa93c420495a76 ""
   (generated)
-  "X.tex"
+  "disp.pdf"
   "disp.aux"
   "disp.log"
-  "disp.pdf"
+  "X.tex"

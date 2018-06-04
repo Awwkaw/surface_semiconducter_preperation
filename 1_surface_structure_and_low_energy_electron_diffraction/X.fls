@@ -1,5 +1,0 @@
-PWD /home/tekc/Documents/Unigit/surface_semiconducter_preperation/1_surface_structure_and_low_energy_electron_diffraction
-INPUT /usr/share/texmf-dist/web2c/texmf.cnf
-INPUT /usr/share/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT X.tex
-OUTPUT X.log
