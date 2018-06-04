@@ -1,11 +1,16 @@
 \documentclass[border = 1mm]{standalone}
-\input{../Premamble}
+\input{../../../Preamble}
         
 %tikz style figure
 % comment out for pgfplots style
 \begin{document}
 \begin{tikzpicture}
-        
+        \foreach \x in {0,...,5}
+        \foreach \y in {0,...,3}
+        \filldraw[draw = c2,fill=c4] (\x,\y) circle (0.2);
+        \foreach \x in {0.2,0.8,2.2,2.8,4.2,4.8}
+        \foreach \y in {4}
+        \filldraw[draw = c2,fill=c4] (\x,\y) circle (0.2);
 \end{tikzpicture}
 \end{document}
 
