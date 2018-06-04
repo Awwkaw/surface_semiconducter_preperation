@@ -1,11 +1,22 @@
 \documentclass[border = 1mm]{standalone}
-\input{../Premamble}
+\input{../../../Preamble}
         
 %tikz style figure
 % comment out for pgfplots style
 \begin{document}
 \begin{tikzpicture}
-        
+        \foreach \r in {3,3.5,...,4.5} 
+        \draw[color = c2, dashed] (0,0) ++(45:\r) arc (45:-45:\r);
+        \draw[color = c2] (0,0) ++(45:5) arc (45:-45:5);
+        \fill[color = white] (0,-0.25) rectangle (5.1,0.25);
+        \draw[color = c2] (5,0.25) --++(1.2,0) -- ++ (0,-0.5) -- ++ (-1.2,0);
+        \node () at (5.6,0.0111) {e-beam};
+        \draw[color = c4] (-0.6,-0.6) rectangle node[pos=.5] {sample} ++(1.2,1.2);
+        \path  (-45:3) node[left]{Faraday cage};
+        \path  (-45:3.85) node[left] {Inelastic scattering shields};
+        \draw  (-45:3.5) -- (-45:4);
+        \path  (-45:4.5) node[left] {Faraday cage};
+        \path  (-45:5) node[left]{Flourecent screen};
 \end{tikzpicture}
 \end{document}
 
