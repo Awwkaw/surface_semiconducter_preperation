@@ -1,11 +1,20 @@
 \documentclass[border = 1mm]{standalone}
-\input{../Premamble}
+\input{../../../Preamble}
         
 %tikz style figure
 % comment out for pgfplots style
 \begin{document}
 \begin{tikzpicture}
-        
+        \foreach \x in {0,...,3}
+        \foreach \y in {0,1,1.8,2.3}
+        \filldraw[draw = c2,fill=c4] (\x,\y) circle (0.15);
+        \draw[color = c2] (3.5,0) -- node[right] {$d_{\textup bulk}$} ++ (0,1) 
+        -- node[right] {$d_{2}$} ++(0,0.8)
+        -- node[right] {$d_{1}$} ++(0,0.5)
+        (3.4,0) --++(0.2,0)
+        (3.4,1) --++(0.2,0)
+        (3.4,1.8) --++(0.2,0)
+        (3.4,2.3) --++(0.2,0);
 \end{tikzpicture}
 \end{document}
 
