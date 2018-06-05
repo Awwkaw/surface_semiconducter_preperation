@@ -5,16 +5,35 @@
 
 \begin{document}
 \maketitle[width=65cm]
-\titleblock{Surface sturctur}{}
+\block{Surface structure}{The energy of the system is 
+        $$U=\underbrace{TS-PV+\mu N}_{\textup{Bulk crystal}} + \underbrace{\gamma A}_{\textup{Surface}}.$$
+        This leads to surface melting $T_{m} \propto \Theta_{d}^2$ and $\Theta_{d_{\textup{bulk}}} \approx \sqrt{2}\Theta_{d_{\textup{surface}}}$
+
+}
 \begin{columns}
 \column{0.25}
-\block{Relaxation}{hej}
+\block{Relaxation}{\centering\foldfig{width=0.8\colwidth}{relaxation}
+
+Relaxation is due to the Finnis Heine model, where the electron density is ``mushed out'' but this is not drawn here.}
 \column{0.25}
-\block{Reconstruction}{hej}
-\column{0.25}
-\block{overlayers}{hej}
-\column{0.25}
-\block{notations}{hej}
+\block{Reconstruction}{\centering\foldfig{width=0.7\colwidth}{reconstruction} 
+
+Often in semiconductors, due to dangeling bonds, f-electrons. Reconstructions can sometimes be ``lifted'' away by overlayers}
+%\column{0.25}
+%\block{overlayers}{hej}
+\column{0.5}
+\block{Overlayer notations}{There are two notations: 
+
+The Woods notation:
+\begin{align*}
+        N&\bigg(\frac{\lvert o_1\rvert}{\lvert a_1\rvert} \times \frac{\lvert o_2\rvert}{\lvert a_2\rvert}\bigg)R\Theta\\
+        \intertext{Where N is the cell type ((C)entered or (P)rimitive), the values in parenthesies are the lengths of surface unit cell vectors, and $\Theta$ the rotation between the bulk surface and the overlayer structure. This notation is simple, but it needs the rotation between the two vectors to be the same.
+%        
+        If they are not the same, the more convoluted, but capable of displaying any relation, matrix notation can be used:}
+        \bigg( \begin{array}{c} \mathbf{o}_1\\ \mathbf{o}_2 \end{array} \bigg)=&\bigg( \begin{array}{cc} m_{11} & m_{12} \\ m_{21} & m_{22}\end{array} \bigg)\bigg(\begin{array}{c}  \mathbf{a}_1\\ \mathbf{a}_2 \end{array}\bigg)
+\end{align*}
+The surface and overlayer are: Simply related if all m are integers, rationally related if some m are rational, incommensurably related if some m are irrational.
+}
 \end{columns}
 
 
@@ -22,16 +41,34 @@
 
 \titleblock{Low Energy Electron Diffraction (LEED)}{}
 \begin{columns}
-\column{0.25}
-\block{Surface vs Bulk}{}
-\column{0.25}
-\block{Universal curve}{}
-\column{0.25}
-\block{Setup}{}
-\column{0.25}
-\block{Ewald sphere}{}
+\column{0.4}
+\block{Setup}{\centering\foldfig{width=0.47\colwidth}{leed_setup}\foldfig{width=0.33\colwidth}{leed_angle}}
+\block{Ewald sphere}{\centering\foldfig{width=0.4\colwidth}{ewald_sphere_bulk} \foldfig{width=0.4\colwidth}{ewald_sphere}}
+\column{0.6}
+\block{Surface vs Bulk}{
+        Low energy electrons are good in surfaces, since they are both surface sensitive, and have a debrolige wavelength, $\lambda_{e}=\frac{h}{p}$ close to that needed for atomic resolution.   
+
+        On the surface there are 2 conditions :$(\mathbf{k}_s^{\|}-\mathbf{k}_i^{\|}=\Delta\mathbf{k} = g$, and $\lvert \mathbf{k}_i\rvert = \lvert \mathbf{k}_s \rvert$
+        there is also a third condition $\mathbf{k}^\bot_s- \mathbf{k}^\bot_{i} = g^\bot$, the last condition only controls the intensity at each peak, the first two control whether or not a peak will appear. This changes the Ewald sphere, from the bulk case to the surface case. Using the last condition the one can find the Bragg peaks in the underlying system,  
+}
+%\column{0.3}
+\block{Surface sensitivity}{\centering\foldfig{width = 0.4\colwidth}{universal_curve}}
 \end{columns}
 
 \titleblock{Examples, real and reciprocal space}
-\block{Reconstruction}{}
+\begin{columns}
+        \column{0.5}
+\block{The $(4\times4)$ pattern}{\centering
+        \foldfig{width=0.26\colwidth}{real_42}\qquad
+        \foldfig{width=0.26\colwidth}{recipocal_42}\qquad
+        \foldfig{width=0.26\colwidth}{recipocal_multid_42}
+}
+        \column{0.5}
+\block{The $c(4\times4)$ pattern}{\centering
+        \foldfig{width=0.26\colwidth}{real_c42}\qquad
+        \foldfig{width=0.26\colwidth}{recipocal_c42}\qquad
+        \foldfig{width=0.26\colwidth}{recipocal_multid_c42}
+
+}
+\end{columns}
 \end{document}
