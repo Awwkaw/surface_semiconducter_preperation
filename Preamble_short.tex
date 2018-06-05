@@ -1,4 +1,7 @@
-\documentclass{tikzposter}
+\documentclass[colspace=0.5cm,blockverticalspace=1cm]{tikzposter}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{mathtools,amssymb,bm}
 \usetheme{basic}
 \defineblockstyle{Justtitle}{
         }{
@@ -9,3 +12,4 @@
         \fi
 }
 \newcommand{\titleblock}[1]{\useblockstyle{Justtitle}\block{#1}{}\useblockstyle{Default}}
+\newcommand{\foldfig}[2]{\includegraphics[#1]{#2/#2}}

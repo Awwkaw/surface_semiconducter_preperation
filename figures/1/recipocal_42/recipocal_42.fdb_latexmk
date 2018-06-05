@@ -1,6 +1,6 @@
 # Fdb version 3
-["pdflatex"] 1528061547 "recipocal_42.tex" "recipocal_42.pdf" "recipocal_42" 1528061548
-  "../../../Preamble.tex" 1528060950 3627 4c7f327f8ec28a2ff51e772f23f86a0b ""
+["pdflatex"] 1528149823 "recipocal_42.tex" "recipocal_42.pdf" "recipocal_42" 1528149823
+  "../../../Preamble.tex" 1528109811 3822 412cd1c6d2ccd4b033603f95ce55839d ""
   "/dev/null" 1527743463 0 d41d8cd98f00b204e9800998ecf8427e ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/share/texmf-dist/fonts/map/pdftex/updmap/pdftex.map" 1520645099 2704162 7a0bfe1b6869e6081137f3dece8a4231 ""
@@ -222,9 +222,9 @@
   "/usr/share/texmf-dist/tex/latex/xkeyval/xkeyval.sty" 1502678251 4962 9c1069474ff71dbc47d5006555e352d3 ""
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1525432865 33365 b118b048154c25395e1bced26df2b0e5 ""
   "/usr/share/texmf-var/web2c/pdftex/pdflatex.fmt" 1525432873 4231646 3d29757c538960bc0611c375a22fd935 ""
-  "recipocal_42.aux" 1528061548 27 3665e95d0f7fdba73ab3c46c1df5b8e6 ""
-  "recipocal_42.tex" 1528061546 922 897e7170215ab1c7adf18c0b6c8eef6c ""
+  "recipocal_42.aux" 1528149823 27 3665e95d0f7fdba73ab3c46c1df5b8e6 ""
+  "recipocal_42.tex" 1528149809 920 eab4336cf5f7b80b7dc5eee043e1d721 ""
   (generated)
+  "recipocal_42.pdf"
   "recipocal_42.aux"
   "recipocal_42.log"
-  "recipocal_42.pdf"

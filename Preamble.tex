@@ -19,11 +19,12 @@
 %cool memoir stuff
 %The cool memoir stuff is wrapped in a check. This is done to see if the document class actually supports it.
 
+%TEXINPUTS=./figures//pdf:%
 \makeatletter%
 \@ifclassloaded{memoir}%
   {%
 \newsubfloat{figure} %allowing sub figures
-\graphicspath{{./figures/}{../figures/}} % no need for those pesky folder extensions in the actual file
+\graphicspath{{./figures/}{../figures/}{../../figures/}{../figures/1/}{../figures/2/}{../figures/3/}{../figures/4/}{../figures/5/}{../figures/6/}{../figures/7/}{../figures/8/}{../figures/9/}{../figures/10/}} % no need for those pesky folder extensions in the actual file
   }%
   {}%
 \makeatother%
@@ -74,10 +75,10 @@
 %        {}%
 %} % this command creates some colours, based on the input. 
 
-\definecolor{c1}{rgb}{0,0,0}
+\definecolor{c1}{rgb}{1,1,1}
 \definecolor{c2}{rgb}{0,0,0}
-\definecolor{c3}{rgb}{0,0,0}
-\definecolor{c4}{rgb}{0,0,0}
+\definecolor{c3}{rgb}{1,0,1}
+\definecolor{c4}{rgb}{1,0,1}
 \definecolor{c5}{rgb}{0,0,0}
 \definecolor{c6}{rgb}{0,0,0}
 \definecolor{c7}{rgb}{0,0,0}
