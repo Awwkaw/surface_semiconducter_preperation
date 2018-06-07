@@ -4,8 +4,21 @@
 %tikz style figure
 % comment out for pgfplots style
 \begin{document}
-\begin{tikzpicture}
-        
+\begin{tikzpicture}[x=2cm,y=2cm]
+        \draw[color = c2] (0,0) -- node[above,sloped] {canteliever} ++(2,-1) 
+        -- ++(-0.5,-0.5)
+        -- ++(0.2,0.65);
+        \node () at (2.5,1.1) {optical sensor};
+
+        \foreach \x in {2,2.5}
+        \foreach \y in {0,0.5}
+        \draw[color = c2] (\x,\y) rectangle ++(0.5,0.5);
+        \draw[color = c5] (2.5,0.5) -- (1.8,-0.9) --node[above,sloped] {laser} (0,1);
+        \draw[color = c2] (0,-2) sin ++(0.25,0.25) cos ++(0.25,-0.25) sin ++(0.25,-0.25) cos ++(0.25,0.25)
+         sin ++(0.25,0.25) cos ++(0.25,-0.25) sin ++(0.25,-0.25) cos ++(0.25,0.25)
+         sin ++(0.25,0.25) cos ++(0.25,-0.25) sin ++(0.25,-0.25) cos ++(0.25,0.25)
+         sin ++(0.25,0.25)
+        ;
 \end{tikzpicture}
 \end{document}
 
