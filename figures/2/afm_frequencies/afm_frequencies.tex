@@ -3,18 +3,24 @@
         
 %tikz style figure
 % comment out for pgfplots style
-\begin{document}
-\begin{tikzpicture}
-        
-\end{tikzpicture}
-\end{document}
+%\begin{document}
+%\begin{tikzpicture}
+%        
+%\end{tikzpicture}
+%\end{document}
 
 %pgfplots style picture
 % comment tikzstyle figure out to get pgfplots style
 \begin{document}
 \begin{tikzpicture}
-        \begin{axis}
-                
+        \begin{axis}[domain=0:10,samples = 10000, xlabel={$\omega_{\textup{drive}}$},ticks=none]
+                \addplot[color=c2] gnuplot {exp(-(2-x)^2/(5*10^-2)) + exp(-(5-x)^2/(5*10^-2)) + exp(-(8-x)^2/(5*10^-2))};
+                \node[] () at (axis cs: 2,1.05)  {attractive};
+                \node[] () at (axis cs: 5,1.05)  {normal};
+                \node[] () at (axis cs: 8,1.05)  {repulsive};
+                \node[] () at (axis cs: 2,-0)  {$\omega'$};
+                \node[] () at (axis cs: 5,-0)  {$\omega_0$};
+                \node[] () at (axis cs: 8,-0)  {$\omega'$};
         \end{axis}
 \end{tikzpicture}
 \end{document}
