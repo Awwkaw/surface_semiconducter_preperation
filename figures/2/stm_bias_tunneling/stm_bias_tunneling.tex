@@ -13,6 +13,7 @@
         \foreach[count=\i, evaluate=\i as \x using (exp(\i/5)/7)] \y in {2.1,2.2,...,2.9}
         \draw[color=c4,->] (2.1,\y) -- ++(\x,0);
         \node () at (1,4) {$\Phi_{\textup{sample}}$};
+        \node () at (2,5) {$V_{\textup{sample}}<0$};
         \node () at (4,4) {$\Phi_{\textup{tip}}$};
         \draw [color = c2,->] (-0.2,-0.2) ->node[above,sloped] {Potential energy} ++(0,5);
         \draw [color = c2,->](-0.2,-0.2) --node[below] {d} ++(5,0); 
