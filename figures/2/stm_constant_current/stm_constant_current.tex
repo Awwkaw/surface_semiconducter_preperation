@@ -4,8 +4,15 @@
 %tikz style figure
 % comment out for pgfplots style
 \begin{document}
-\begin{tikzpicture}
-        
+\begin{tikzpicture}[x=0.5cm,y=0.5cm]
+        \node () at (5,1.5) {z};
+        \draw [color=c2] (0,0) sin ++(1,1) cos ++(1,-1) sin ++(1,-1) cos ++(1,1) sin ++(1,1) cos ++(1,-1) sin ++(1,-1) cos ++(1,1) sin ++(1,1) cos ++(1,-1);        
+        \draw [color=c2] (0,-1) sin ++(1,1) cos ++(1,-1) sin ++(1,-1) cos ++(1,1) sin ++(1,1) cos ++(1,-1) sin ++(1,-1) cos ++(1,1) sin ++(1,1) cos ++(1,-1);        
+
+
+
+        \draw [color=c2] (11,1) --node[above]{I} +(10,0);        
+        \draw [color=c2] (11,-1) sin ++(1,1) cos ++(1,-1) sin ++(1,-1) cos ++(1,1) sin ++(1,1) cos ++(1,-1) sin ++(1,-1) cos ++(1,1) sin ++(1,1) cos ++(1,-1);        
 \end{tikzpicture}
 \end{document}
 
