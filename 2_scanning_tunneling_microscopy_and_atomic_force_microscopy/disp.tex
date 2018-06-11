@@ -1,7 +1,127 @@
-\include{../Preamble}
+\documentclass[article,oneside]{memoir}
+\input{../Preamble}
 
-\colorscheme{1}
-\depth{1}
+%\colorscheme{1}
+%\depth{1}
 \begin{document}
+\chapter{STM}
+\section{stm setup}
+\foldfig{}{stm_setup}
 
+Scanning tunneling microscopi (STM) works by moving an atomically sharp needle across a conducting surface. With a bias voltage between the two, electrons can be forced to tunnel, either from surface to needle, or from needle to surface. The neede is moved via piezo materials -- materials that extend and contract based on a voltage over it -- set in two structures, a tube scanner and an inchworm, that together allows for 6 directional control. 
+\section{STM modes}
+In STM there are to modes, Constant height mode:
+
+\foldfig{}{stm_constant_height}
+
+Where the height is kept constant and the current is varied over the surface. The height of the surface can then be calculated from the current. The constant height mode is fast, and good for making movies and the like, but if the surface is very bumpy, the needle will bump into the kinks in it. To combat this, another mode; constant current mode, can be used:
+
+\foldfig{}{stm_constant_current}
+
+In constant current mode, the current is being kept constant by a feedback loop, that reacts to changes in it. This makes constant current mode slower than constant height mode, but it's a much less risky technique as the tip will never touch the surface.
+
+\section{STM tunneling + math}
+For the STM to work the electrons must tunnel, this is impossible to calculate analytically, due to unknowns in the tip and surface, there are however two fine models.
+\foldfig{}{stm_tunneling}
+\subsection{Bardeen transfer hamiltonian method}
+\begin{itemize}
+        \item One particle process
+        \item simplify hamiltonian, ignore unknown contribution (distance)
+        \item use same tip and sample wavefunctions as solutions
+        \item Fermis golden rule gives the tunneling probability $P_{s\rightarrow t}$, this is elastic tunneling.
+\end{itemize}
+\begin{align*}
+        P_{s\rightarrow t} &= \bigg( \frac{2m}{\hbar^2}\bigg)\int \lvert \Psi_{t}(r) H'\Psi_{s}(r)\rvert^2 \, d\mathbf{r}\partial(E_{t}-E_{s})\\
+        I_{t\rightarrow s} &= \frac{2\pi e}{\hbar} \int \lvert M_{ts} \rvert^{2} \rho_{t} (E-eV) \rho_{s} (E) f_{t} (E-eV) [1-f_{s}(E)] \, dE\\
+        I_{s\rightarrow t} &= \frac{2\pi e}{\hbar} \int \lvert M_{ts} \rvert^{2} \rho_{t} (E-eV) \rho_{s} (E) [1-f_{t} (E-eV) ]f_{s}(E) \, dE\\
+         \intertext{%
+                 $\rho_{t}$ is the density of states in the tip.%\\%
+                 $\rho_{s}$ is the density of states in the surface.%\\%
+                 $eV$ is the shift due to bias.%\\%
+                 $f_{t}$ is the Fermi---Dirac distribution for the tip.%\\%
+                 $f_{s}$ is the Fermi---Dirac distribution for the surface.%\\%
+                 $\lvert M_{ts}\rvert^{2}$ tunneling matrix element.%
+         }
+        I_{t\rightarrow s} - I_{s\rightarrow t} &= \frac{2\pi e}{\hbar}\int\lvert M_{ts}\rvert^{2} \rho_{t}(E-eV)\rho_{s}(E)[f_s(E)-f_{t}(E-eV)]\,dE\\
+        I = I_{t\rightarrow s} - I_{s\rightarrow t} &\approx \frac{2\pi e}{\hbar} \int_{E_{f}}^{E_{f+eV}}\lvert M_{ts}\rvert^{2}\rho_{t}(E-eV)\rho_{s}(E)\,dE\\
+        \intertext{ Note version:}
+        I &\approx \int_{E_{f}}^{E_{f+eV}}\lvert M_{ts}\rvert^{2}\rho_{t}(E-eV)\rho_{s}(E)\,dE=\int_{0}^{eV_A}T(E,eV_{A})\rho_{a}(E)\rho_{B}(E-eV)\,dE\\
+\end{align*}
+\subsection{Tersoff Hamann model}
+\begin{align*}
+        I&\approx \int_{0}^{eV}T(E,eV)\rho_s(E)\rho_t(E-eV)\,dE\\
+        \intertext{let $\rho_{t}$ be constant and:}
+        I&\propto\int_{0}^{eV}T(E,eV)\rho_{s}(E)\,dE\\
+        T(E,eV) &\approx e^{-2z\sqrt{\frac{2m}{h^{2}}\big(\bar{\Phi}+\frac{eV}{2}-E\big)}}\\
+        \intertext{Is the tunneling probability, $T$ is the barrier, $z$ is the width of the barrier, $\Phi$ is the avg work function and $V$ is the applied bias. Next assume a low bias, to take the tunneling out of the integral:}
+        I&\propto\int_{0}^{eV}T(E,eV)\rho_{s}(E)\,dE\\
+        &\approx T(E_f)\int_{0}^{eV}\rho_s\,dE\\
+        &\approx e^{-2z\sqrt{\frac{2m}{\hbar^2}(\bar{\Phi})}}\int_{0}^{eV}\rho_s(E)\,dE\\
+        &\approx e^{-2z\sqrt{\frac{2m}{\hbar^2}(\bar{\Phi})}}\rho_s(E_{f})\cdot eV=const\cdot\rho_{s}(E_{f},z)V
+\end{align*}
+$rho_{s}$ is the local density of states (it varies in xy~plane), This can be understood by the following figure:
+
+\foldfig{}{stm_bias_tunneling}
+
+This can be used to make I--V spectres, being at the same point and changing the voltage mesuring the current, and then diffentiating; once ($\frac{dI}{dV}$) will get the band gap of the structure, twice ($\frac{d^{2}I}{dV^{2}}$) will get the vibrational spectrum for the atom under the tip.
+
+\chapter{AFM}
+
+\section{AFM setup}
+In Atomic Force Microscopy (AFM) a cantilever with a spring at the end is used, the tip can touch the surface, and as it moves over atoms it goes up and down, a mirror is placed on the top of the cantilever, and a laser shined on the mirror, from the mirror the light re
+
+\foldfig{}{afm_setup}
+
+\section{forces}
+The total force on the tip is
+
+
+\begin{equation*}
+        F_{tot}=\underbrace{F_{chem}}_{\textup{Bonding between tip and sample }}+\underbrace{F_{mag}}_{\textup{magnitically sensitive tips}}+\underbrace{F_{el}}_{-\frac{1}{2}\frac{\partial C}{\partial z}V^2}+\underbrace{F_{vdW}}_{-\frac{HR}{6r^2}}
+\end{equation*}
+\section{hook}
+the systems eigen frequency is
+\begin{align*}
+        f_{0}&=\frac{1}{2\pi}\sqrt{\frac{k}{m_{eff}}}\\
+        k &= \frac{Ebh^3}{4L^3}\\
+        \intertext{for a kanteliever, $E$ is Youngs modulus}
+        f&=0.162\sqrt{\frac{E}{\rho}}\frac{h}{L^2}
+\end{align*}
+is the reconance frequency, and $\rho$ the mass density
+\section{potential + modes}
+The Lennnard Jones potential is\begin{equation*}4\varepsilon\bigg(\big(\frac{\sigma}{r}\big)^{12}-\big(\frac{\sigma}{r}\big)^{6}\bigg)\rightarrow F_{LJ}(r) =-\frac{\partial U_{LJ}(r)}{\partial r}\end{equation*} and seen here:
+
+\foldfig{}{afm_leonard_jones}
+
+When doing AFM there are multiple modes, in contact mode, the tip is in direct contact with the surface, that's everything above the zero line, so the needle moves like the surface. 
+
+In non contact mode the cantilever vibrates at a frequency, as the Lennars---Jones potential affects the cantilever the frequency changes, allowing one to understand what is happening.
+
+\section{Canteliever mechanics}
+\begin{align*}
+        m\frac{d^2z}{dt^{2}}+\frac{m\omega_{0}}{Q}\frac{dz}{dt} + k_{0}z&=F_{\textup{ext}}\cos\omega t\numberthis\label{eq:extafm}\\
+        \intertext{$\omega_{0}=\sqrt{\frac{k_{0}}{m}}$ is the free resonance frequency, $F_{\textup{ext}}$ the external driving force, $Q=\frac{m\omega_{0}}{\alpha}$ the Q factor (width of the amplitude peak) and $k_{0}$ is the spring constant. This leads to the steady state:}
+        z(t)&=A(\omega)\cos(\omega t-\phi)\\
+        A(\omega)&=\frac{\frac{F_{\textup{ext}}}{m}}{\sqrt{\big(\omega_{0}^{2}-\omega^2\big)^2+\big(\frac{\omega\omega_{0}}{Q}\big)^{2}}}\\
+        \phi(\omega) &= \arctan\bigg(\frac{\gamma\omega}{Q(\omega^2-\omega_0^2)}\bigg)\\
+        \intertext{Now the surface--tip interaction is added into the mix. This means the \cref{eq:extafm} becomes}
+        m\frac{d^2z}{dt^{2}}+\frac{m\omega_{0}}{Q}\frac{dz}{dt} + k_{0}z&=F_{\textup{ext}}\cos\omega t +F_{\textup{ts}}(z)\\
+        \intertext{$F_{\textup{ts}}(z)$ is the tip surface force, and using the low--amplitude approximation:}
+        F_{\textup{ts}}(x)&\approx \frac{\partial F_{\textup{ts}}}{\partial z   }z =k_{\textup{ts}}z\\
+        &\Downarrow\\
+        m\frac{d^2}{dt^2}+\frac{m\omega_0}{Q}\frac{dz}{dt}+(k_{0}-k_{\textup{ts}})z&=F_{\textup{ext}}\cos(\omega t)\\
+        k' &= k_{0}-k_{\textup{ts}}\qquad\textup{Is the new spring constant}\\
+        \omega'&=\sqrt{\frac{k'}{m}}\qquad\textup{Is the new resonance frequency}\\
+        \intertext{Using the taylor expansion, $k_{0}\gg k_{\textup{ts}}$}
+        \omega'(k_{0}+k_{\textup{ts}}) &\approx\omega_{0}+\frac{d\omega}{dk_{\textup{ts}}}k_{\textup{ts}}\\
+        &=\omega_{0}-\frac{1}{2}\frac{1}{\sqrt{mk_{0}}}\\
+        &=\omega_{0}\big(1-\frac{1}{2}\frac{k_{\textup{ts}}}{k_{0}}\big)
+        &=\omega_{0}+\Delta\omega\\
+        &\Downarrow\\
+        f'&=f_{0}+\underbrace{\Delta f}_{\textup{detuning}}
+\end{align*}
+
+The effect of this can be seen in the following figure, where it's shown that the attractive force lowers the frequency and the repulsive one heightens it.
+
+\foldfig{}{afm_frequencies}
 \end{document}
