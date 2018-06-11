@@ -6,9 +6,10 @@
 \usepackage{siunitx} % typesetting for units
 \usepackage[draft,margin]{fixme} % for notes, remove draft if final version
 \usepackage{graphicx} % for inserting figures
+\usepackage{cleveref}
 \usepackage{acronym} %for having acronyms
 \usepackage{tikz} % for drawing stuff
-\usepackage{pgfplots} %for plotting data or math functions
+\usepackage{pgfplots}[compat=1.16] %for plotting data or math functions
 \usepackage{xcolor} % for having nicer colours
 \usepackage{ifthen} % boolean checks
 
@@ -31,6 +32,7 @@
 
 % new commands
 
+\newcommand{\foldfig}[2]{\includegraphics[#1]{#2/#2}}
 \newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}} %numbering equations in align* or aligned*
 
 %\newcommand{colourscheme}[1]%
@@ -79,9 +81,9 @@
 \definecolor{c2}{rgb}{0,0,0}
 \definecolor{c3}{rgb}{1,0,1}
 \definecolor{c4}{rgb}{1,0,1}
-\definecolor{c5}{rgb}{0,0,0}
-\definecolor{c6}{rgb}{0,0,0}
-\definecolor{c7}{rgb}{0,0,0}
+\definecolor{c5}{rgb}{1,0,0}
+\definecolor{c6}{rgb}{0,1,0}
+\definecolor{c7}{rgb}{0,0,1}
 \definecolor{c8}{rgb}{0,0,0}
 \definecolor{c9}{rgb}{0,0,0}
 \definecolor{c10}{rgb}{0,0,0}
