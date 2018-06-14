@@ -1,9 +1,121 @@
 \input{../Preamble_short}
-\title{\centering\parbox{\linewidth}{Surface structure and low energy electron difraction}}
+\title{\centering{Electron spectroscopy for chemical analasys}}
 \author{Thorbjørn Erik Køppen Christensen}
 
 
 \begin{document}
-\maketitle[width=65cm]
+\maketitle%[width=65cm]
+\begin{columns}
+\column{0.5}
+\titleblock{X-ray Photoelectron Spectroscopy (XPS)}
+\begin{subcolumns}
+        \subcolumn{0.48}
+        \block{XPS principle}{\centering\foldfig{width=17cm}{xps_scattering}}
+        \subcolumn{0.48}
+        \block{XPS spin orbit coupeling}{\centering
+Spin orbit coupling means that the J quantum number is $J=L+S$, and it can be either parralel ($j=l+\frac{1}{2}$, $2j+1$ fold) or anti-parallel ($j=l-\frac{1}{2}$, $2j+1$ fold). Thus it only occurs for $l=1,2,3$
+                \foldfig{width=15cm}{xps_j_splitting}}
+\end{subcolumns}
+\block{Math}{
+
+\begin{align*}
+        E_{\textup{kin}}&=h\nu -E_{\textup{bin}} -\Phi\\
+        E_{\textup{bin}}&=h\nu - E_{\textup{kin}} -\Phi
+\end{align*}
+\begin{align*}
+        I_{x}&=\sigma_{x}(E)N_{x}\lambda(E)AD(E)T(E)\\
+        \intertext{$\sigma_{x}$ is the element specific cross--section, $N_{x}$ the concentration of the element, $\lambda$ is the inelastic electron mean free path, $A$ is the sample area, $D$ the detector efficiency and $T$ the analyzer transmission efficiency.}
+        \frac{I_{A}}{I_{B}}&= \frac{\sigma_{A}(E)N_{A}\lambda(E)AD(E)T(E)}{\sigma_{B}(E)N_{B}\lambda(E)AD(E)T(E)}\\
+        \frac{N_{A}}{N_{B}}&\approx \frac{I_{A}}{I_{B}} \times \frac{\sigma_{B}\lambda_{B}}{\sigma_{A}\lambda_{A}}\\
+        \intertext{using Fermis golden rule, an expression for the differential cross section for phootoemission into the element of solid angode $d\Omega$}
+        \frac{d\sigma}{d\Omega}&\propto\big\lvert\int\psi_{f}(R)\mathbf{H}'\psi_{i}(r)\,dr\big\rvert^2\partial(E_{f}-E_{i}-h\nu).\\
+        \intertext{Where $\mathbf{H}'$ is the pertubation hamiltonian, it ccan be found by replacingthe momentum operator $\mathbf{p}$ by $\mathbf{p}-e\mathbf{A}$, $\mathbf{A}$ being the vector potential:}
+        \mathbf{H}_0&=-\frac{e}{2m_{e}}(\mathbf{p}\cdot \mathbf{A}+\mathbf{A}\cdot \mathbf{p})-e\Phi+\frac{e^2}{2m_{e}}\lvert A\rvert^2\\
+        \intertext{$\lvert A\rvert$ is small, so the last term can be ignored, the pertubatyon is then:}
+        \mathbf{H}'&=-\frac{e}{2m_{e}}(\mathbf{p}\cdot \mathbf{A}+\mathbf{A}\cdot \mathbf{p})\\
+        \intertext{using $[ \mathbf{p},\mathbf{A}]=-ih\nabla \mathbf{A}$}
+        \mathbf{H}'&=-\frac{e}{2m_{e}}(2\mathbf{p}\cdot \mathbf{A}-ih\nabla\mathbf{A})\\
+        \intertext{For low energy light, the vector potential is constant, so:}
+        \frac{d\sigma}{d\Omega}&\propto\big\lvert\mathbf{A}_0\int\psi_{f}(R)\mathbf{p}\psi_{i}(r)\,dr\big\rvert^2\partial(E_{f}-E_{i}-h\nu).
+        \intertext{Koopmans theorem states that the energy will change due to the relaxation of the surface:}
+        E_{\textup{kin}}=h\nu-(E_{\textup{bin}}-E_{\textup{r}})-\Phi
+\end{align*}
+}
+\titleblock{Electron stuff}
+\begin{subcolumns}
+        \subcolumn{0.48}
+        \block{X-ray generation}{\centering\foldfig{height=16cm}{x-ray_generation}}
+        \subcolumn{0.48}
+        \block{Electron mass analyser}{\centering\foldfig{width=17cm}{electron_mass_analyzer}}
+\end{subcolumns}
+
+
+
+
+\column{0.5}
+\titleblock{Auger Electron Spectroscopy (AES)}
+\begin{subcolumns}
+        \subcolumn{0.3}
+        \block{Auger electron scheme}{\foldfig{width=10cm}{auger_electron_scheme}}
+        \subcolumn{0.66}
+        \block{Energy}{        
+\begin{align*}
+        E_{\textup{kin}}&=E_{A}^{Z}-E_{B}^{Z}-E_{C}^{Z}-\Phi\\
+        \intertext{But there is a core hole after electron A has left:}
+        E_{\textup{kin}}&=E_{A}^{Z}-E_{B}^{Z+1}-E_{C}^{Z+1}-\Phi\\
+        \intertext{But the atom is not $Z+1$:}
+        E_{\textup{kin}}&=E_{A}^{Z}-\frac{1}{2}\big(E_{B}^{Z+1}+E_{B}^{Z}\big)-\frac{1}{2}\big(E_{C}^{Z+1}+E_{C}^{Z}\big)-\Phi
+\end{align*}
+        }
+\end{subcolumns}
+\block{Nomeclature}{
+The nomeclature is (example) KLL, where the first letter is the initial hole, second letter is the shell of the falling electron, and the third letter is the shell of the emitted electron
+}
+\titleblock{EXtended X-ray Arbsoption Fine Structure (EXAFS)}
+%\begin{subcolumns}
+%        \subcolumn{0.3}
+%\block{EXAFS emitter and absorber}{\foldfig{width=10cm}{exafs_occilations}}
+%        \subcolumn{0.66}
+\block{modes}{
+        Possible only with synchrotron radiation!
+\begin{itemize}\item{EXAFS}\end{itemize}
+There are oscillations in the absorption spectrum. These are due to the transfer from one atom to the next, so the same atom doesn't absorb and emit the electron.
+\begin{wrapfigure}{r}{0.3\linewidth}
+        \foldfig{}{exafs_occilations}
+\end{wrapfigure}
+
+\begin{align*}
+        \chi(k)&=\frac{\sigma(k)-\sigma_{0}(k)}{\sigma_{0}(k)}\\
+        \chi{}(k)&=-k^{-1}\sum{}_{i}A_{i}(k)\sin[2kR_{i}+\phi_{i}(180^\circ{},k)]\\
+        \intertext{here the sum is over the shells, the $2kR_{i}$ term is the actual modulation and  the $\phi_{i}$ term is the energy dependant phase shift.}
+        A_{i}&=\frac{N_i}{R_{i^2}}\lvert f_{i}(180^\circ,k)\rvert W(T,K)e^-\frac{2R_{i}}{\lambda}
+\end{align*}
+
+where $N_{i}$ is the number of atoms in sheel i, $R_{i}$ the radial dependance, making only the first few shells important. $f_{i}$ the scattering function (atom dependant), $W$ the Debye--Waller factor and the exponential term arises form it being inelastic scattering.
+\begin{itemize}\item{Surface EXAFS (SEXAFS)}\end{itemize}
+Is the surface version of EXAFS, it gives the bond length but not absorption site. However, by polarizing the different neighbours can be seen one by one. There are however problems: Auger electrons will be generated and EXAFS only raises \SI{3}{\percent} 
+\begin{itemize}\item{Near-edge EXAFS (NEXAFS)}\end{itemize}
+These are for the oscillations very close to the K-edge of the system. Strong peaks will be seen when enough energy is given to raise the $s1$ electron to the LUMO, LUMO+1, \dots.
+        }
+%\end{subcolumns}
+\titleblock{Photoelectron Diffraction (PhD)}
+\block{Types}{
+\begin{align*}
+        I(\mathbf{R})&\propto{}\lvert{}\psi{}_{0}(\mathbf{R}+\sum{}_{j}\psi{}_{sj}\mathbf{R}\rvert{}^2\\
+        I(k)&\propto\big\lvert\cos\Theta_{k}+\sum_j \frac{\cos\Theta_k}{r_{j}}\lvert f(\Theta_j,k)\rvert e^{ikr_{j}(1-\cos\Theta_j)+\phi(\Theta_j,k)}\big\rvert^2
+\end{align*}
+\begin{itemize}\item{Angle scan}\end{itemize}
+Here the angle varied, but the x-ray energy is constant, so it can be used with laboratory sources. The diffraction pattern can tell something about the surface structure.
+
+\begin{itemize}\item{Energy scan}\end{itemize}
+Here the energy is varied, but angle kept constant, so a synchrotron is needed. It turns out that the spectrum will be modulated due to the difference in energy.
+\begin{equation*}
+        \chi(E)= \frac{I(E)-I_{0}(E)}{I_{0}(E)}
+\end{equation*}
+This experiment doesn't need long order to work, and XPS is underlying, so the same structural information is gathered
+
+
+}
+\end{columns}
 
 \end{document}
