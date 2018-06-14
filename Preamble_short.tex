@@ -1,8 +1,10 @@
-\documentclass[colspace=0.5cm,blockverticalspace=1cm]{tikzposter}
+\documentclass[subcolspace=1mm,colspace=0.5cm,blockverticalspace=1cm]{tikzposter}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{mathtools,amssymb,bm}
 \usepackage{graphicx}
+\usepackage{siunitx}
+\usepackage{wrapfig}
 \graphicspath{{./figures/}{../figures/}{../../figures/}{../figures/1/}{../figures/2/}{../figures/3/}{../figures/4/}{../figures/5/}{../figures/6/}{../figures/7/}{../figures/8/}{../figures/9/}{../figures/10/}} % no need for those pesky folder extensions in the actual file
 \usetheme{basic}
 \defineblockstyle{Justtitle}{
@@ -13,5 +15,5 @@
                 rectangle (blocktitle.north east);
         \fi
 }
-\newcommand{\titleblock}[1]{\useblockstyle{Justtitle}\block{#1}{}\useblockstyle{Default}}
+\newcommand{\titleblock}[1]{\useblockstyle{Justtitle}\block[bodyinnersep=-0.4cm]{#1}{}\useblockstyle{Default}}
 \newcommand{\foldfig}[2]{\includegraphics[#1]{#2/#2}}

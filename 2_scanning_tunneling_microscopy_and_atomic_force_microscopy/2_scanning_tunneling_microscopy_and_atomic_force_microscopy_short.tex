@@ -8,7 +8,7 @@
 \titleblock{Scanning Tunnelling Microscopy}
 \begin{columns}
         \column{0.4}
-        \block[bodyoffsety=2cm,titleoffsety=2cm]{principle}{\foldfig{width=13cm}{stm_setup}\foldfig{width=17cm}{stm_bias_tunneling}}
+        \block{principle}{\foldfig{width=13cm}{stm_setup}\foldfig{width=17cm}{stm_bias_tunneling}}
         \block{modes}{\centering Constant height mode:
                 
                 \foldfig{width=20cm}{stm_constant_height}
@@ -18,7 +18,7 @@
         
         }
         \column{0.6}
-        \block[bodyoffsety=2cm,titleoffsety=2cm]{Tunneling math!!!}{
+        \block{Tunneling math!!!}{
         \begin{align*}
         P_{s\rightarrow t} &= \bigg( \frac{2m}{\hbar^2}\bigg)\int \lvert \Psi_{t}(r) H'\Psi_{s}(r)\rvert^2 \, d\mathbf{r}\partial(E_{t}-E_{s})\\
         I_{t\rightarrow s} &= \frac{2\pi e}{\hbar} \int \lvert M_{ts} \rvert^{2} \rho_{t} (E-eV) \rho_{s} (E) f_{t} (E-eV) [1-f_{s}(E)] \, dE\\
@@ -52,14 +52,14 @@
 \titleblock{Atomic Force Microscopy}
 \begin{columns}
         \column{0.5} 
-        \block[bodyoffsety=2cm,titleoffsety=2cm]{setup}{\foldfig{}{afm_setup}
+        \block{setup}{\foldfig{}{afm_setup}
 \foldfig{}{afm_leonard_jones}
 }\block{Modes}{There's contact mode and non contact/dynamic mode and tapping mode between the two. In contact mode the tip scrapes along the surface, in tapping mode the tip oscillates and make contact with the tip each time it reaches it's lowest point, this mode doesn't require as much calibration as non contact, but also doesn't damage the system it's probing as much as contact, so it can be used for studying biological environments.
         In non contact mode the cantilever vibrates above the surface, and is driven at some frequency, thinking of the surface--tip interactions as a spring between the surface and tip, makes the tip a ``ball'' suspended between two springs, this problem is known, see to the right}
         \block{forces}{
                 $ F_{tot}=\underbrace{F_{chem}}_{\textup{Bonding between tip and sample }}+\underbrace{F_{mag}}_{\textup{magnitically sensitive tips}}+\underbrace{F_{el}}_{-\frac{1}{2}\frac{\partial C}{\partial z}V^2}+\underbrace{F_{vdW}}_{-\frac{HR}{6r^2}}$}
         \column{0.5}
-        \block[bodyoffsety=2cm,titleoffsety=2cm]{Cantilever mechanics}{
+        \block{Cantilever mechanics}{
 % \begin{align*}
 %        f_{0}&=\frac{1}{2\pi}\sqrt{\frac{k}{m_{eff}}}\\
 %        k &= \frac{Ebh^3}{4L^3}\\

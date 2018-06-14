@@ -5,7 +5,12 @@
 % comment out for pgfplots style
 \begin{document}
 \begin{tikzpicture}
-        
+        \filldraw[color = c5] (3,2) circle (0.25);        
+        \filldraw[color = c6] (0,0) circle (0.25);        
+        \foreach \r in {1,...,3}
+        \draw[color=c5] (3,2) circle (\r);
+        \foreach \r in {1,...,3}
+        \draw[color=c6] (0,0) circle (\r);
 \end{tikzpicture}
 \end{document}
 

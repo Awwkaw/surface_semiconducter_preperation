@@ -1,0 +1,32 @@
+\documentclass[border = 1mm]{standalone}
+\input{../../../Preamble}
+        
+%tikz style figure
+% comment out for pgfplots style
+\begin{document}
+\begin{tikzpicture}
+        \foreach \r in {1,2,3}
+        \draw[color = c2] (0,0) circle (\r);
+        \filldraw[color=c2] (0,0) circle (0.5);
+        \filldraw[color=c4] (0,0)++(160:1) circle (0.25);
+        \filldraw[draw=c4,fill=c1] (0,0)++(330:1) circle (0.25);
+        \draw[->,color=c2,decoration={coil,aspect=0.8,segment length=3mm,amplitude=2mm}] (-4,3) decorate {--(333:1)}  -- (-4,-3);
+
+        \foreach \ang in {62, 188, 149, 312,  81, 216, 354, 279}
+        \filldraw[color=c4] (0,0)++(\ang:2) circle (0.25);
+
+        \foreach \ang in { 69, 169, 253, 270, 152, 235,  102, 111}
+        \filldraw[color=c4] (0,0)++(\ang:3) circle (0.25);
+\end{tikzpicture}
+\end{document}
+
+%pgfplots style picture
+% comment tikzstyle figure out to get pgfplots style
+\begin{document}
+\begin{tikzpicture}
+        \begin{axis}
+                
+        \end{axis}
+\end{tikzpicture}
+\end{document}
+

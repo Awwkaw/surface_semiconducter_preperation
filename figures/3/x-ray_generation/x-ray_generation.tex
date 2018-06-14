@@ -1,0 +1,41 @@
+\documentclass[border = 1mm]{standalone}
+\input{../../../Preamble}
+        
+%tikz style figure
+% comment out for pgfplots style
+\begin{document}
+\begin{tikzpicture}
+        \draw[color = c2, decoration={coil,segment length= 2mm,aspect= 0.8,amplitude=3mm}]
+                (0,0) -- 
+                ++(0,-1) -- 
+                ++(2,0) -- 
+                ++(0,1) -- 
+                ++(1,0) -- 
+                ++(0,-3) 
+                ++(-0.5,0) --
+                ++(1,0) 
+                ++(-0.25,-0.1) -- 
+                ++(-0.5,0) 
+                ++(0.25,0) --
+                ++(0,-3) --
+                ++(-1,0) --
+                ++(0,1) --
+                ++(-0.1,0)
+                decorate {-- ++(-1.8,0)} --
+                ++(-0.1,0) --
+                ++(0,-1);
+
+                
+\end{tikzpicture}
+\end{document}
+
+%pgfplots style picture
+% comment tikzstyle figure out to get pgfplots style
+\begin{document}
+\begin{tikzpicture}
+        \begin{axis}
+                
+        \end{axis}
+\end{tikzpicture}
+\end{document}
+

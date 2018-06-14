@@ -5,7 +5,10 @@
 % comment out for pgfplots style
 \begin{document}
 \begin{tikzpicture}
-        
+        \foreach \r in {2,3}
+        \draw[color=c2] (0,0) ++(\r,0) arc (0:180:\r);        
+        \node () at (0,1.8) {$+$};
+        \node () at (0,3.2) {$-$};
 \end{tikzpicture}
 \end{document}
 

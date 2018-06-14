@@ -1,0 +1,24 @@
+\documentclass[border = 1mm]{standalone}
+\input{../../../Preamble}
+        
+%tikz style figure
+% comment out for pgfplots style
+%\begin{document}
+%\begin{tikzpicture}
+%        
+%\end{tikzpicture}
+%\end{document}
+
+%pgfplots style picture
+% comment tikzstyle figure out to get pgfplots style
+\begin{document}
+\begin{tikzpicture}
+        \begin{axis}[no marks, ticks=none,samples=2000,xmin = -2,xmax=5,ymin = 0,ymax = 7]
+                \addplot gnuplot {4*exp(-(x)^2*5)};
+                \addplot gnuplot {6*exp(-(x-3)^2*5)};
+                \node () at (axis cs:0,4.5) {$j=\frac{3}{2}$};
+                \node () at (axis cs:3,6.5) {$j=\frac{5}{2}$};
+        \end{axis}
+\end{tikzpicture}
+\end{document}
+

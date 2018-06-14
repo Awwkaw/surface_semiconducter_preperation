@@ -1,0 +1,34 @@
+\documentclass[border = 1mm]{standalone}
+\input{../../../Preamble}
+        
+%tikz style figure
+% comment out for pgfplots style
+\begin{document}
+\begin{tikzpicture}
+        \foreach \y in {0,...,2}
+        \draw[color=c2] (0,\y) -- (1,\y);
+        \draw[color=c2] (0,2) -- (3,2);
+        \foreach \y in {2}
+        \foreach \x in {0,...,3}
+        \filldraw[fill=c4,draw=c2] (\x,\y) circle (0.25cm);
+        \foreach \y in {0,1}
+        \foreach \x in {0,1}
+        \filldraw[fill=c4,draw=c2] (\x,\y) circle (0.25cm);
+        \filldraw[fill=c1,draw=c2] (1,0) circle [radius = 0.25cm] node {A};
+        \filldraw[fill=c1,draw=c2] (2,2) circle [radius = 0.25cm] node {B};
+        \filldraw[fill=c1,draw=c2] (3,2) circle [radius = 0.25cm] node {C};
+        \draw [->,color=c2] (1.85,1.72)--(1.2,0.3);
+        \draw [->,color=c2] (3.2,2.2)--(3.4,2.4);
+\end{tikzpicture}
+\end{document}
+
+%pgfplots style picture
+% comment tikzstyle figure out to get pgfplots style
+\begin{document}
+\begin{tikzpicture}
+        \begin{axis}
+                
+        \end{axis}
+\end{tikzpicture}
+\end{document}
+

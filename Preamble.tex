@@ -10,6 +10,7 @@
 \usepackage{acronym} %for having acronyms
 \usepackage{tikz} % for drawing stuff
 \usepackage{pgfplots}[compat=1.16] %for plotting data or math functions
+\pgfplotsset{compat=1.16}
 \usepackage{xcolor} % for having nicer colours
 \usepackage{ifthen} % boolean checks
 
@@ -97,7 +98,7 @@
 %%%             PACKAGE CUSTOMIZATION START             %%%
 
 
-\usetikzlibrary{calc,patterns,shapes,arrows,positioning} %Cool libraries for drawing stuff
+\usetikzlibrary{calc,patterns,decorations,shapes,arrows,positioning} %Cool libraries for drawing stuff
 
 \sisetup{exponent-product=\cdot, output-product =\cdot,per-mode=fraction,range-phrase=--}%Nicer way to present units
 
