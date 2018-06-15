@@ -1,5 +1,105 @@
 \documentclass[article,oneside]{memoir}
 \input{../Preamble}                    
 \begin{document}
+\chapter{Physisorbtion}
+This is simmilar to van der Walls bonding, in normal vdW a molecule form a dipole$p_1$, with $E_1\propto r^{-3}$, and then induces a dipole in the other molecule $p_2\propto \alpha p_{1}r^{-3}$ so $U\propto p_{2}E_{1}\propto r^{-6}$.
+In physisoption however, the second dipole is not induced, but an image dipole, so $p_2 =p_1$ thus $U\propto p_2 E_{1}\propto r^{-3}$ and it becomes a stronger and longer ranged (several \si{\angstrom} force than the normal vdW.
+
+It has the order of \SIrange{10}{100}{\milli\eV}, and as the room temperature energy $k_bT=\SI{25}{\milli\eV}$ the temperature must be low for it to have an effect.
+
+
+\foldfig{width=\columnwidth}{physisorbtion_vs_van_der_waals}
+\chapter{Chemisorption}
+\section{Newns Anderson model}
+chemisorption is akin to the chemical bond formed between two molecules, where the surface can be viewed as a single large molecule.
+\begin{align*}
+        \psi&=c_m\psi_m+c_a\psi_a\\
+        \intertext{where $m$ is the metal and $a$ is the adsorbate. The system then has the energies:}
+        E_m&=\int\psi_{m}^*H\psi_{m}\,d\mathbf{r}\\
+        E_a&=\int\psi_{a}^*H\psi_{a}\,d\mathbf{r}\\
+        -V=\int\psi_{a}^*H\psi_{m}\,d\mathbf{r}&=\int\psi_{m}^*H\psi_{a}\,d\mathbf{r}\\
+        \intertext{And the overlap}
+        S&=\int\psi_{m}^*\psi_{a}\,d\mathbf{r}\\
+        H\psi&=E\psi\\
+        \int \psi_{a}^*H\psi=-c_mV+c_aE_a&=E_a(Sc_m+c_a)\\
+        \int \psi_{m}^*H\psi=-c_aV+c_mE_m&=E_m(Sc_a+c_m)\\
+        \intertext{Or in matrix form:}
+        \left[\begin{array}{cc}
+                E-E_a & V-ES\\
+                V-SE & E-E_m
+        \end{array}\right] &= 0\\
+        \intertext{For simplicity $S=0$ can be assumed}
+        E_{1,2}&= \frac{E_a+E_m}{2}\pm \sqrt{\left(\frac{E_a-E_m}{2}\right)^2+V^2}\\
+        E_{1,2}&= \bar{E} \pm\Delta\\
+        c_a&=c_m \frac{E_1-E_m}{V}\qquad\textup{For the lower state}\\
+        c_a&=c_m \frac{E_2-E_m}{V}\qquad\textup{For the upper state}\\
+\end{align*}
+The above is the Newns--Anderson model for metals with d-electrons. Here one will see a split, and a broadening+shift due to the sp orbitals:
+
+\foldfig{width=\columnwidth}{chemisorbtion_d_band_schematic}
+
+If there is no d-electrons, only a broadening+shift will be seen:
+
+\foldfig{width=\columnwidth}{chemisorbtion_simple_metal_schematic}
+
+\section{d-band model}
+In the dband model $\Delta E= \Delta E_{sp} + \Delta E_{d--h}$. First the molecule couples to the s orbital (giving shift and broadening) then to the d orbital (giving a splitting into binding and antibonding orbitals) it can then be projected onto the metal DOS.
+
+\section{dissociative adsorption}
+When the antibonding orbitals in the molecules are filled enough to break the molecule on the surface.
+
+\foldfig{width=\columnwidth}{dissociative_adsorption}
+
+\chapter{Kinetics: Langmuir model}
+
+\section{absorption}
+The coverage $\Theta$ changes over time:
+\begin{align*}
+        \frac{d\Theta}{dt}=S \frac{dN}{dt}&=S \frac{P}{\sqrt{2\pi Mk_{b}T} }\\
+        \intertext{where, $N$ is the number of sites ($N_{0}$ would be the number of sites on a clean surface), $S$ is the sticking coefficient:}
+        S=c(1-\Theta)^ne^{\frac{E_{a}}{k_{b}T}}&=S_{0}(1-\Theta)^n\\
+        \intertext{$S_{0}$ is the sticking coefficient on a clean surface. $c$ is the fraction of incoming molecules adsorbed on a clean surface. $(1-\Theta)^n$ takes care of the fact that the adsorption probability changes with coverage. The $^n$ describes the order; at zeroth order new adsorbants can sit on top of old adsorbants, at first order the adsorption is associative, at second order the adsorption is dissociative. The last factor is the energy requirement  for the process, in total this gives:}
+        \frac{d\Theta}{dt}&= \frac{P}{\sqrt{2\pi Mk_{b}T} }c(1-\Theta)^ne^{\frac{E_{a}}{k_{b}T}}
+\end{align*}
+$c$, $E_{a}$ and $n$ are unknown.
+
+This model is often too simple, as it doesn't mind physisorption. Physisorption can act as a precursor to chemisorption and thus making binding more likely at lower coverages and less likely at higher coverages.
+
+\foldfig{width=\columnwidth}{langmuir_experimental}
+\section{desorption}
+\begin{align*}
+        -\frac{d\Theta}{dt}&=\nu\Theta^ne^{-\frac{E_{d}}{k_{b}T}}\\
+        \intertext{maximum at:}
+        \frac{d^2\Theta}{dt^2}&=0\\
+        &\Downarrow\qquad n=1\\
+        E_{d}&=kT_{m}\ln\left(\frac{kT_m^2\nu}{E_d\beta}\right)
+\end{align*}
+$\nu$ is the attempt rate, $\Theta$ the coverage, $E_{d}$ the dissociation barrier. To study the dissociation one uses
+\subsection{Thermal desorption spectroscopy/ Temperature programmed desorption}
+here the temperature is linearly changed:
+\begin{equation*}
+        T=T_0+\beta t
+\end{equation*}
+If the UHV pump is very fast, then:
+\begin{equation*}
+        -\frac{d\Theta}{dt}\propto P_{\textup{partial}}
+\end{equation*}
+this leads to the following:
+
+\foldfig{width=\columnwidth}{temperature_programmed_desorption}
+
+Where the left picture is $n=1$ and the right is $n=2$. The difference is due to the two atoms needing to meet on the right pictuer.
+
+
+Each peak is an adsorption state, and there can bee many more, each complicating the situation.
+\section{Desorption Adsorption equilibrium}
+At equilibrium:
+\begin{align*}
+         \nu\Theta^ne^{-\frac{E_{d}}{k_{b}T}}  &=      \frac{P}{\sqrt{2\pi Mk_{b}T} }c(1-\Theta)^ne^{\frac{E_{a}}{k_{b}T}}  \\
+        \intertext{Or:}
+        P&=  \frac{\sqrt{2\pi Mk_{b}T}}{c}\nu_n\left(\frac{\Theta}{1-\Theta}\right)^ne^{-\frac{E_{d}-E_{a}}{k_{b}T}}\\
+        E_{d}-E_{a}&=-k\left(\frac{\partial \ln(P)}{\partial \frac{1}{T}}\right)\bigg\vert_{\Theta}
+\end{align*}
+the above is the Clausius--Claperyon formulæ
 
 \end{document}
