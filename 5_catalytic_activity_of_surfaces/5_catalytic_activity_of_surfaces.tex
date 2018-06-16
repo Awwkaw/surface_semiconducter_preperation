@@ -1,5 +1,85 @@
 \documentclass[article,oneside]{memoir}
 \input{../Preamble}
+\title{Catalytic activity of surfaces}
+\author{Thorbjørn Erik Køppen Christensen}
 \begin{document}
+\maketitle
 
+\chapter{Catalyst principle}
+A catalyst is an object that lowers the activation barrier for a reaction without being changed by the reaction. See:
+
+\foldfig{width=\columnwidth}{catalasys_basic_schematic}
+
+It's important for the sake of making materials cheaper and cleaner.
+\chapter{Catalytic models}
+There are mainly two models in heterogeneous catalysis.
+\section{Langmuir--Hinselwood}
+This model is diffusion based. All reactants diffuse around on the surface until they meet and react by chance, they then leave the surface together.
+
+\foldfig{width=\columnwidth}{catalasys_langmuir_hinshelwood}
+\section{Eley--Rideal}
+In this model one of the reactants goes to the surface and the other then picks it up from the surface. This model is much rarer.
+
+\foldfig{width=\columnwidth}{catalasys_eley_rideal}
+\chapter{A good catalyst}
+It's hard to define what a good catalyst is, but a good place to start is the binding energy with the surface, $E_{a}$, it needs to be large enough to dissociate incoming reactants (if that's what's needed), but low enough to let the reactants diffuse on around, and the finished product to leave. 
+
+The difficulty has led to the principle ``just right'' (Sabatier's principle) which is the binding energy that leads to the highest turnover-rate.
+
+It can be modified by many things, and is generally presented in a volcano plot:
+
+
+\foldfig{width=\columnwidth}{catalasys_volcano_plot}
+
+\chapter{Improving the catalytic effect of materials}
+To get closer to ``just right'' one can do many things. Often the most reactive site is the surface, and thus getting a better $\frac{A}{V}$ ratio ($A$=area,$V$=volume) will increase the catalyst. On the surface kinks and steps will often have a higher $E_{a}$ energy than the more plain surfaces. As such nano particles are good for creating catalysts, as they increase both the surface variation and the $\frac{A}{V}$ ratio.
+
+Another important principle is the surface core level shift (SCLS), this moves the d-band, and makes it more shallow, meaning it will interact more strongly where it interacts.
+\chapter{The d-band model}
+In the d-band model the adsorption energy is: 
+\begin{equation*}
+        \Delta E=\Delta E_{sp}+\Delta E_{d}
+\end{equation*}
+where $\Delta E_{sp}$ is the bond energy from the $sp$ electrons, and $\Delta E_{d}$ is the contribution from the d-electrons. Most of the bond is from $\Delta E_{sp}$, but this value is more or less the same for all materials, whereas $\Delta E_{d}$ changes drastically. This assumption fails for nanoparticles.
+
+\foldfig{width=\columnwidth}{catalasys_d_band_model}
+\section{the d-band projected DOS}
+
+\begin{align*}
+        \varepsilon_{d}&=\frac{\int_{-\infty}^{\infty}n_{d}(\varepsilon)\varepsilon\,d\varepsilon}{\int_{-\infty}^{\infty}n_{d}(\varepsilon)\,d\varepsilon}\\
+        \intertext{is the first moment, for higher moments $n>1$}
+        \varepsilon_{d}^{(n)}&=\frac{\int_{-\infty}^{\infty}n_{d}(\varepsilon)(\varepsilon-\varepsilon_{d})^n\,d\varepsilon}{\int_{-\infty}^{\infty}n_{d}(\varepsilon)\,d\varepsilon}\\
+        \intertext{To get the width and shape:}
+        n_{d}(\varepsilon)&=\begin{cases}\frac{10}{W_d}&\textup{if}\ \varepsilon_{d}-\frac{w_d}{2}<\varepsilon<\varepsilon_{d}+\frac{W_d}{2}\\0&\textup{elswhere}\end{cases}\\
+        \intertext{10 is the number of $d$ electrons, $W_{d}$ the bandwith. The band will be filled with $\frac{N_d}{10}$ electrons, or:}
+        f&=\frac{\int_{\varepsilon_d-\frac{W_{d}}{2}}^{\varepsilon_{f}}\frac{10}{W_d}\,d\varepsilon}{\int_{\varepsilon_d-\frac{W_{d}}{2}}^{\varepsilon_{d}+\frac{W_{d}}{2}}\frac{10}{W_d}\,d\varepsilon}\\
+        &=\frac{1}{2}-\frac{1}{W_d}(\varepsilon_{d}-\varepsilon_{f})\\
+        \intertext{This leads to the hybridisation part of the bond energy:}
+        \Delta E_{d}^{\textup{hyb}} &= \int_{-\frac{W_d}{2}}^{\varepsilon_{f}}\frac{10}{W_d}\varepsilon\,d\varepsilon\\
+        &=\frac{5}{W_d}\left(\varepsilon_{f}^{2}-\frac{W_{d}^2}{4}\right)\\
+        &=5W_{d}f(f-1)
+\end{align*}
+
+The energy can be split even further:
+\begin{align*}
+        \Delta E_{d}&=\delta E_{d--\textup{hyb}} +\Delta E_{d}^{\textup{ortho}}\\
+        \Delta E_{d}^{\textup{ortho}}&\cong \alpha\lvert V_{ad}\rvert^2
+\end{align*}
+Ligands can change the d-band centre.
+
+More reactive metals have $\varepsilon_{d}$ close to $\varepsilon_{f}$. In general all reactive metals have $\varepsilon_{f}\lesssim\varepsilon_{d}+\frac{W_{d}}{2}$, whereas all unreactive metals have $\varepsilon_{d}+\frac{W_{d}}{2}<\varepsilon_{f}$.
+\chapter{The pressure gap}
+When doing surface experiments UHV is often a necessity to study the surface. The UHV condition is however far away from the conditions under which catalysis happens in the industry, so to study the more realistic setting techniques have been devolved:
+\section{Ambient pressure XPS}
+in XPS the intensity of peaks changes with the preasure:
+\begin{align*}
+        I(p)&=I_{0}e^{-\frac{z}{\lambda}}\\
+        \intertext{$\lambda$ is the mean free path, and z the length traveled}
+        \lambda &= \frac{k_{b}T}{\sigma(KE)p}
+\end{align*}
+where $\lambda$ is the  mean free path, $\sigma$ the cross section and $p$ the pressure.
+
+\foldfig{width=\columnwidth}{high_pressure_xps}
+\section{Ambient pressure STM}
+Ambient pressure STM is the same as normal STM, but due to the higher pressure it's impossible to get as clean pictures as at UHV. There'll also be more drift, special equipment is needed to handle this drift, and the pumping of gasses to ensure the correct partial pressure of all steps.
 \end{document}
