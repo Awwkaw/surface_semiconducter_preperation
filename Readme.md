@@ -3,7 +3,7 @@
 ## Aim
 The aim of this repository is to make a good set of papers for understanding the course *Surface and semiconductor physics* at Aarhus university. And doing this by providing both a long-form set of papers on each topic as well as a shorter ''talk card'' style paper for each topic.
 ## What is missing
-The figures for the first to talking papers have been made, last nine talk papers are lacking, and there is no long version of any talk paper
+So far talk papers, short (for 1,2,3,4) and long(2,3,4,5) have been created. 5 long form papers lack and 6 short form
 
 
 
