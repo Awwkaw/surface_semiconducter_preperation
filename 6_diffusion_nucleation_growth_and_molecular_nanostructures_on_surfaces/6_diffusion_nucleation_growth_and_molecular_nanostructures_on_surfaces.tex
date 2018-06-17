@@ -1,5 +1,172 @@
 \documentclass[article,oneside]{memoir}
 \input{../Preamble}
+\title{Diffusion, nucleation, growth and molecular nanostructures on surfaces}
+\author{Thorbjørn Erik Køppen Christensen}
 \begin{document}
+\maketitle
+\part{Diffusion nucleation and growth}
+\chapter{Basic diffusion system}
+\section{Random walk}
+The idea is that adatoms can wander freely on a surface if the thermal energy is height enough. It does so by:
+\begin{align*}
+        \rangle \Delta r^2 \langle &= \nu a^2 t\\
+        \intertext{$\rangle \Delta r^2 \langle$ is the mean square displacement, $\nu$ the jump rate (generally around \SI{10e13}{\per\second}), $a$ the jump distance and $t$ the time. This gives rice to the diffusion coefficient (diffusivity) or the time dependent ratio of the mean square displacement:}
+        D&=\frac{\rangle\Delta r^2\langle}{zt}=\frac{\nu a^2}{z}\\
+        \intertext{Where $z$ is the number of possible jumps (2 is 1d, 4 is 2d square, 6 is 2d hexagonal). The frequency can be found as a function of temperature and barrier:}
+        \nu&=\nu_0e^{-\frac{E_{\textup{diff}}}{k_{b}T}}
+        \intertext{$D$ might not be equal in every direction, a 1d system could have a small chance of jumping in another direction, if this is the case the diffusion is anisotropic, it could also be caused by the unit cell not being symmetric:}
+        D(\phi)&=D_{x}\cos^2\phi+D_{y}\sin^2\phi
+\end{align*}
+\chapter{Ways the atoms move}
+Atoms can move in different ways: 
+
+Jumping over a neighbouring atom, while this might seem simple it's not.
+
+Exchanging: Atoms can diffuse on a surface by changing place with the atom below it, pushing it in the diffusion direction.
+
+\foldfig{width=\columnwidth}{diffusion_exchange_mechanism}
+\section{Surface diffusion of clusters}
+When islands grow new forms of diffusion, these are called cluster diffusions, and the idea is that the centre of mass for the cluster changes. They are:
+\subsection{for individual atoms}
+\begin{itemize}
+        \item sequential displacement mechanism --- The atoms move one by one
+        \item Edge diffusion --- Atoms move along the edge of the island
+        \item Evaporation--condensation --- An atom evaporates from the island in one place and another condensates in another place. If the island is stable the processes will be in equilibrium
+        \item Leapfrog --- An atom jumps over a series of atoms.
+\end{itemize}
+
+\foldfig{width=\columnwidth}{diffusion_individual_cluster_motion}
+\subsection{for groups}
+\begin{itemize}
+        \item Gliding mechanism --- all atoms move simultaneously
+        \item Shearing --- A subgroup of atoms glide, but not all atoms (and not a single atom)
+        \item Reptation --- multiple shears gliding in a zigzag manner
+        \item Dislocation --- rows are seperated by a misfit, the atoms will then move through shears or individual movements to eliminate the fault
+\end{itemize}
+
+\foldfig{width=\columnwidth}{diffusion_group_cluster_motion}
+
+\chapter{Growing islands}
+For a simple system with $i=1$ one has
+\begin{align*}
+        N&\sim\left( \frac{R\Theta}{\nu} \right)^\chi\\
+        \chi&=\frac{i}{i+2}
+\end{align*}
+\section{modes}
+Islands can grow in three modes:
+\begin{itemize}
+        \item \emph{Layer-by-layer} or \emph{Frank-van der Merve (FM)} one layer grows completely before the next one start on top. Caused by the film being stronger bound to the substrate than itself
+        \item \emph{Layer plus island} (\emph{Stranski--Krastanow (SK)}) the first layer grows completely, then island can start growing in height
+        \item \emph{Island} (\emph{Vollmer--Weber (VW)}) film is bound more to itself than the surface, and the islands can build height
+\end{itemize}
+
+\foldfig{width=\columnwidth}{nucleation_island_growth_modes}
+
+The different modes can be understood by the surface tension $\gamma$
+\begin{equation*}
+        \gamma_{S}=\gamma_{S/F}+\gamma_{F}\cos\phi
+\end{equation*}
+$\gamma_{S}$ being the surface tension of the substrate, $\gamma_{F}$ the surface tension of the film, $\gamma_{S/F}$ the film--surface tension and $\phi$ the contact angle. The growth mode can be found by removing the cosine factor and checking which part is larger.
+\section{Nucleation and growth}
+When Islands grow they have a critical surface size $i$, $i$ is the size at which an island breaks. So $i+1$ is the size at which the island is stable. There are multiple important factors for how the islands grow. some are $R$ the rate at which atoms arrive from gas phase, $E_{\textup{ads}}$ the energy binding the adatom to the surface, putting $n_{1}$ adatoms on the surface with $n_{_0}$ sites per unit area, the diffusion coeficcient 
+\begin{align*}
+        D&=\frac{\nu}{4n_{0}}e^{-\frac{E_{\textup{diff}}}{k_{B}T}}\\
+        \intertext{The adatom can then reevaporate with the lifetime}
+        \tau_{\textup{ads}}&=\frac{1}{\nu}e^{\frac{E_{\textup{ads}}}{k_{B}T}}\\
+\end{align*}
+
+Adatoms might also be captured by existing islands, they can also combine to form a new cluster
+
+\foldfig{width=\columnwidth}{nucleation_differential_equation_origin}
+
+
+
+\subsection{Book mathematics}
+For a cluster of size $j$ there are four important processes:
+\begin{itemize}
+        \item A new cluster size $j$ is formed every time a cluster size $j-1$ get's an atom. The flux is $\sigma_{j-1}Dn_{j-1}n_{1}$
+        \item The detachment of an atom from a cluster size $j+1$, the flux is $\partial_{j+1}n_{j+1}$ also creates a new group of size $j$
+        \item A group of size $j$ is lost when it losses an atom at flux $\partial_jn_j$
+        \item A group of size $j$ is lost when it gains an atom, flux $\sigma_{j}Dn_jn_1$
+\end{itemize}
+$n_1$ is the density of adatoms, $D$ the diffusion coefficient, $\sigma$ the capture number (capability of cluster to capture atom) and $\partial_{j+1}= De^{-\frac{\Delta E_{j}^{j+1}}{k_{B}T}}$ is the decay rate of an island, $\Delta E_{j}^{j+1}$ is the energy difference between the two island sizes.
+$n_{x}$ is now the number density of stable islands ($j>i$)
+
+\begin{align*}
+        \frac{dn_1}{dt}&=\underbrace{R}_{\textup{desposition}}-\underbrace{\frac{n_1}{\tau_{\textup{ads}}}}_{\textup{dissociation}}+\left( \underbrace{2\partial_{2}n_{2}}_{\textup{nucleation}}+\underbrace{\sum_{j=3}^{i}\partial_{j}n_j}_{\textup{growth}}-\underbrace{2\sigma_1Dn_1^2}_{\textup{denucleation}}-\underbrace{n_1\sum_{j=2}^i\sigma_jDn_j}_{\textup{degrowth}} \right)-\underbrace{n_1\sigma_xDn_x}_{\textup{growth stable}}\\
+        \frac{dn_j}{dt}&=\underbrace{n_1\sigma_{j-1}Dn_{j-1}}_{\textup{growth}}-\underbrace{\partial_{j}n_j}_{\textup{degrowth}}+\underbrace{\partial_{j+1}n_{j+1}}_{\textup{degrowth}}-\underbrace{n_1\sigma_jDn_j}_{\textup{growth}}\\
+        \frac{dn_x}{dt}&=\underbrace{n_1\sigma_1Dn_1}_{\textup{growth}}\\
+        \intertext{This splits the system into 4 stages: ``low coverage'' (adatom density higher than island density), ``intermediate coverage'' (more islands than adatoms), ``aggregation regime'' (collecting the last adatoms) and the ``coalescence and percolation regime'' (Islands melting together). The number of island grown (normalized to sites) are:}
+        \frac{n_{x}}{n_{0}}&=\eta(\Theta,i)\left( \frac{R}{Dn_{0}^{2}} \right)^{\chi} e^{\frac{E_{i}}{(i+2)k_{B}T}}\qquad\textup{with no reevaporation}\\
+        \frac{n_{x}}{n_{0}}&= \eta(\Theta,i) \left( \frac{4R}{\nu_{0}n_{0}} \right)^{\chi} e^{\frac{\chi\left(E_{diff}+\frac{E_{i}}{i}\right)}{k_{B}T}}\\
+        \chi_{2d}&=\frac{i}{i+2}\\
+        \chi_{1d}&=\frac{i}{2(i+1)}\\
+        \intertext{Here $E_{i}$ is the binding energy of the critical cluster, $\eta$ an exponential factor (\numrange{e-2}{e+1}). The second formulae takes temperature dependence of diffusion coefficient into account.}
+\end{align*}
+\subsection{Trolle mathematics}
+!!!!OBS!!!!
+
+\emph{Trolle did not care for adatoms leaving the surface in his 2017 lecture, also it's in general more lazy math than the one in the book}
+\begin{align*}
+        \frac{dN_{1}}{dt}&=R(1-\Theta)-\frac{F_{x}N_1}{\tau}-(i+1)\frac{dN_{x}}{dt}\\
+        \frac{dN_{x}}{dt}&=\frac{F_{i}N_{1}}{\tau}\\
+        N_{x}&\sim \eta(\Theta,i) \left( \frac{R}{\nu} \right)^{\chi} e^{\frac{\chi\left(E_{diff}+\frac{E_{i}}{i}\right)}{k_{B}T}}
+\end{align*}
+
+$N_1$: density of adatoms
+
+$N_{x}$: density of stable islands
+
+$F_i$: fraction of critical clusters
+
+$F_{x}$: fraction of stable islands
+
+$\tau$ average lifetime before adatom is lost to nucleation or growth.
+
+\foldfig{width=\columnwidth}{nucleation_rate_vs_temp}
+
+\section{Island size distribution and coarsing phenomena}
+
+Two island shape types exist \emph{ramified} (fractal like) (low T $\rightarrow$ low edge diffusion) and \emph{Compact} (having straight lines for edges).
+\subsection{island size}
+
+\begin{align*}
+        N&=\sum_{s>i}N_s\qquad \textup{noncritical islands}\\
+        \Theta&=\sum_{s\geq 1}sN_{s}\\
+        \langle s\rangle &= \frac{\sum_{s>i}sN_s}{\sum_{s>i}N_s}\\
+        &=\frac{\Theta-\sum_{s\leq i}SN_{s}}{N}\\
+        \intertext{if $i$ is small:}
+        \langle s\rangle &= \frac{\Theta-N_1}{N}\approx \frac{\Theta}{N}\\
+        f_{i}\left( \frac{s}{\langle s\rangle} \right)&=\frac{N_s(s_{av})^{2}}{\Theta}
+\end{align*}
+
+\foldfig{width=\columnwidth}{nucleation_capture_zone}
+Screenshot from 2018-06-17 02-18-35
+\subsection{Ostwald Ripening and coalscence}
+
+coalscence is the merging of islands when they physically come into contact with one another, the shape depends on the edge mobility. (dynamic coalescence or Smoluschowsi ripening)
+\foldfig{width=\columnwidth}{nucleation_coalscence}
+
+Ostwald ripening is a diffusion process, where the equilibrium is in favor of the larger island, so the larger island consumes the smaller one without them touching.
+
+$$\mu(r)=\Omega\frac{\gamma}{r}$$ is the Gibbs--Thompson relation (chemical potential for circular island), $\gamma$ the step line tension, $\Omega$ the area occupied by one atom, this makses the adatom pressure higher on smaller atoms, and thus Ostwald ripening is explained.
+\foldfig{width=\columnwidth}{nucleation_oswald_ripening}
+
+\part{Molecular nanostructures on surfaces}
+
+\chapter{Self assembly}
+``Molecular self-assembly is the spontanous association of
+molecules under equilibrium conditions into stable, structurally
+well defined aggregates joined by non-covalent bonds.''
+\begin{equation*}
+        E_b> E_{\textup{intermidiate}}\geq E_{\textup{kin}} > E_{\textup{dessorption}}
+\end{equation*}
+
+
+\section{Covalent  vs metal vs hydrogen}
+Hydrogen bonds are lower en energy, so it's easier for them to restructure into something organized, metal bonds are semi organized, and covalent bonds are completely random.
+
+
 
 \end{document}
+
