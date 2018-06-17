@@ -9,9 +9,9 @@
 \section{Random walk}
 The idea is that adatoms can wander freely on a surface if the thermal energy is height enough. It does so by:
 \begin{align*}
-        \rangle \Delta r^2 \langle &= \nu a^2 t\\
-        \intertext{$\rangle \Delta r^2 \langle$ is the mean square displacement, $\nu$ the jump rate (generally around \SI{10e13}{\per\second}), $a$ the jump distance and $t$ the time. This gives rice to the diffusion coefficient (diffusivity) or the time dependent ratio of the mean square displacement:}
-        D&=\frac{\rangle\Delta r^2\langle}{zt}=\frac{\nu a^2}{z}\\
+        \langle \Delta r^2 \rangle &= \nu a^2 t\\
+        \intertext{$\langle \Delta r^2 \rangle$ is the mean square displacement, $\nu$ the jump rate (generally around \SI{1e13}{\per\second}), $a$ the jump distance and $t$ the time. This gives rise to the diffusion coefficient (diffusivity) or the time dependent ratio of the mean square displacement:}
+        D&=\frac{\langle\Delta r^2\rangle}{zt}=\frac{\nu a^2}{z}\\
         \intertext{Where $z$ is the number of possible jumps (2 is 1d, 4 is 2d square, 6 is 2d hexagonal). The frequency can be found as a function of temperature and barrier:}
         \nu&=\nu_0e^{-\frac{E_{\textup{diff}}}{k_{b}T}}
         \intertext{$D$ might not be equal in every direction, a 1d system could have a small chance of jumping in another direction, if this is the case the diffusion is anisotropic, it could also be caused by the unit cell not being symmetric:}
@@ -141,10 +141,10 @@ Two island shape types exist \emph{ramified} (fractal like) (low T $\rightarrow$
 \end{align*}
 
 \foldfig{width=\columnwidth}{nucleation_capture_zone}
-Screenshot from 2018-06-17 02-18-35
 \subsection{Ostwald Ripening and coalscence}
 
 coalscence is the merging of islands when they physically come into contact with one another, the shape depends on the edge mobility. (dynamic coalescence or Smoluschowsi ripening)
+
 \foldfig{width=\columnwidth}{nucleation_coalscence}
 
 Ostwald ripening is a diffusion process, where the equilibrium is in favor of the larger island, so the larger island consumes the smaller one without them touching.
@@ -166,7 +166,7 @@ well defined aggregates joined by non-covalent bonds.''
 \section{Covalent  vs metal vs hydrogen}
 Hydrogen bonds are lower en energy, so it's easier for them to restructure into something organized, metal bonds are semi organized, and covalent bonds are completely random.
 
-
+\foldfig{width=\columnwidth}{self_assembly_h_vs_metal_covalent}
 
 \end{document}
 

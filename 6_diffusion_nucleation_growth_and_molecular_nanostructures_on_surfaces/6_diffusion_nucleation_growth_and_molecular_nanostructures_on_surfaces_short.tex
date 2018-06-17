@@ -1,9 +1,95 @@
 \input{../Preamble_short}
-\title{\centering\parbox{\linewidth}{Surface structure and low energy electron difraction}}
+\title{\centering\parbox{\linewidth}{\centering Diffusion nucleation growth and molecular nanostructures on surfaces}}
 \author{Thorbjørn Erik Køppen Christensen}
 
 
 \begin{document}
-\maketitle[width=65cm]
+\maketitle[width=60cm]
+\begin{columns}
+        \column{0.5}
+        \titleblock{Diffusion}
+                \block{Random walk}{
+\begin{align*}
+        \langle \Delta r^2 \rangle &= \nu a^2 t\\
+        \intertext{$\langle \Delta r^2 \rangle$ is the mean square displacement, $\nu$ the jump rate (generally around \SI{1e13}{\per\second}), $a$ the jump distance and $t$ the time. This gives rise to the diffusion coefficient (diffusivity) or the time dependent ratio of the mean square displacement:}
+        D&=\frac{\langle\Delta r^2\rangle}{zt}=\frac{\nu a^2}{z}\\
+        \intertext{Where $z$ is the number of possible jumps (2 is 1d, 4 is 2d square, 6 is 2d hexagonal). The frequency can be found as a function of temperature and barrier:}
+        \nu&=\nu_0e^{-\frac{E_{\textup{diff}}}{k_{b}T}}
+        \intertext{$D$ might not be equal in every direction, a 1d system could have a small chance of jumping in another direction, if this is the case the diffusion is anisotropic, it could also be caused by the unit cell not being symmetric:}
+        D(\phi)&=D_{x}\cos^2\phi+D_{y}\sin^2\phi
+\end{align*}
+                
+                }
+                
+        %\phantom{\block[bodyoffsety=-5cm,titleoffsety=-5cm]{}{\rule{0pt}{0pt}}}
+        \column{0.5}
+        \titleblock{Cluster diffusion}
+        \begin{subcolumns}
+                \subcolumn{0.47}
+                \block{Single atom}{\foldfig{width=0.9\subcolwidth}{diffusion_individual_cluster_motion}}
+                \subcolumn{0.47}
+                \block{Atom Group}{\foldfig{width=0.9\subcolwidth}{diffusion_group_cluster_motion}}
+        \end{subcolumns}
+        \block{ways to walk}{\centering\foldfig{width=0.3\colwidth}{diffusion_exchange_mechanism}}
+\end{columns}
+\titleblock{Islands}
+\begin{columns}
+        \column{0.3}
+        \block{Capture zone+modes}{
+                \foldfig{width=0.3\colwidth}{nucleation_capture_zone}
+                \foldfig{width=0.6\colwidth}{nucleation_island_growth_modes}}
+        \block{Ostewald ribening + coalescene}{\foldfig{width=0.9\colwidth}{nucleation_oswald_ripening}
+        
+        \foldfig{width=0.9\colwidth}{nucleation_coalscence}}
+        \block{Math figure}{\foldfig{width=0.9\colwidth}{nucleation_differential_equation_origin}}
+        \column{0.7}
+        \block{Mathematics}{
+%\begin{align*}
+%        N&\sim\left( \frac{R\Theta}{\nu} \right)^\chi\\
+%        \chi&=\frac{i}{i+2}
+%\end{align*}
+$n_1$ is the density of adatoms, $D$ the diffusion coefficient, $\sigma$ the capture number (capability of cluster to capture atom) and $\partial_{j+1}= De^{-\frac{\Delta E_{j}^{j+1}}{k_{B}T}}$ is the decay rate of an island, $\Delta E_{j}^{j+1}$ is the energy difference between the two island sizes.
+$n_{x}$ is now the number density of stable islands ($j>i$)
 
+\begin{align*}
+        \frac{dn_1}{dt}&=\underbrace{R}_{\textup{desposition}}-\underbrace{\frac{n_1}{\tau_{\textup{ads}}}}_{\textup{dissociation}}+\left( \underbrace{2\partial_{2}n_{2}}_{\textup{nucleation}}+\underbrace{\sum_{j=3}^{i}\partial_{j}n_j}_{\textup{growth}}-\underbrace{2\sigma_1Dn_1^2}_{\textup{denucleation}}-\underbrace{n_1\sum_{j=2}^i\sigma_jDn_j}_{\textup{degrowth}} \right)-\underbrace{n_1\sigma_xDn_x}_{\textup{growth stable}}\\
+        \frac{dn_j}{dt}&=\underbrace{n_1\sigma_{j-1}Dn_{j-1}}_{\textup{growth}}-\underbrace{\partial_{j}n_j}_{\textup{degrowth}}+\underbrace{\partial_{j+1}n_{j+1}}_{\textup{degrowth}}-\underbrace{n_1\sigma_jDn_j}_{\textup{growth}}\\
+        \frac{dn_x}{dt}&=\underbrace{n_1\sigma_1Dn_1}_{\textup{growth}}\\
+        \intertext{This splits the system into 4 stages: ``low coverage'' (adatom density higher than island density), ``intermediate coverage'' (more islands than adatoms), ``aggregation regime'' (collecting the last adatoms) and the ``coalescence and percolation regime'' (Islands melting together). The number of island grown (normalized to sites) are:}
+        %\frac{n_{x}}{n_{0}}&=\eta(\Theta,i)\left( \frac{R}{Dn_{0}^{2}} \right)^{\chi} e^{\frac{E_{i}}{(i+2)k_{B}T}}\qquad\textup{with no reevaporation}\\
+        \frac{n_{x}}{n_{0}}&= \eta(\Theta,i) \left( \frac{4R}{\nu_{0}n_{0}} \right)^{\chi} e^{\frac{\chi\left(E_{diff}+\frac{E_{i}}{i}\right)}{k_{B}T}}\\
+        \chi_{2d}&=\frac{i}{i+2}\\
+        \chi_{1d}&=\frac{i}{2(i+1)}\\
+        \intertext{Here $E_{i}$ is the binding energy of the critical cluster, $\eta$ an exponential factor (\numrange{e-2}{e+1}). The second formulae takes temperature dependence of diffusion coefficient into account.}
+\end{align*}
+size
+\begin{align*}
+        N&=\sum_{s>i}N_s\qquad \textup{noncritical islands}
+        &\Theta=\sum_{s\geq 1}sN_{s}\\
+        \langle s\rangle &= \frac{\sum_{s>i}sN_s}{\sum_{s>i}N_s}=\frac{\Theta-\sum_{s\leq i}SN_{s}}{N}
+        \underset{i=1}{=} \frac{\Theta-N_1}{N}\approx \frac{\Theta}{N}\\
+        f_{i}\left( \frac{s}{\langle s\rangle} \right)&=\frac{N_s(s_{av})^{2}}{\Theta}
+\end{align*}
+
+        }
+   %     \block{size}{}
+\end{columns}
+\titleblock{Self assembly}
+\begin{columns}
+        \column{0.5}
+        \block{Hydrogen vs metal vs covalent}{\centering
+Hydrogen bonds are lower en energy, so it's easier for them to restructure into something organized, metal bonds are semi organized, and covalent bonds are completely random.
+\foldfig{width=8cm}{self_assembly_h_vs_metal_covalent}
+        }
+        \column{0.5}
+        \block{principle}{
+        ``Molecular self-assembly is the spontanous association of
+molecules under equilibrium conditions into stable, structurally
+well defined aggregates joined by non-covalent bonds.''
+\begin{equation*}
+        E_b> E_{\textup{intermidiate}}\geq E_{\textup{kin}} > E_{\textup{dessorption}}
+\end{equation*}
+
+        }
+\end{columns}
 \end{document}
