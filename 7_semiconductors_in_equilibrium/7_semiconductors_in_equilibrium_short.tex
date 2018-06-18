@@ -1,9 +1,131 @@
 \input{../Preamble_short}
-\title{\centering\parbox{\linewidth}{Surface structure and low energy electron difraction}}
+\title{\centering{Semiconductors in equilibrium}}
 \author{Thorbjørn Erik Køppen Christensen}
 
 
 \begin{document}
-\maketitle[width=65cm]
+\maketitle
+\titleblock[bodyoffsety=1cm,titleoffsety=1cm]{Intrinsic semiconductors}
+\begin{columns}
+        \column{0.5} 
+        \block{Equilibrium distributions}{
+\begin{wrapfigure}{r}{10cm}\foldfig{width=10cm}{band_gap_schematic}\end{wrapfigure}
+The equilibrium distributions are:
+\begin{align*}
+        n(E)&=g_c(E)f_{F}(E)\\
+        p(E)&=g_v(E)(1-f_F(E))\\
+\end{align*}
+with $f_F$ being a Fermi--Dirac distribution
+$n$ is the electron distribution in the valence band and $g_c$ the density of states (DOS) in the conducting band, $p$ the hole distribution in the conducting band and $g_v$ the DOS in the valence band.
 
+An intrinsic semiconductor is a perfect and perfectly pure semiconductor crystal. At $T=0k$ all states in the valence band is filled.
+
+        }
+        \begin{subcolumns}
+                \subcolumn{0.56}
+        \block{Intrinsic carrier concentration}{
+For the intrinsic system $E_{Fi}$ is the intrinsic Fermi energy.
+\begin{align*}
+        n_0=p_0=n_i=p_i&=N_ce^{-\frac{E_c-E_{Fi}}{kT}}\\
+        n_i^2&=N_cN_ve^{-\frac{E_c-E_{Fi}}{kT}}e^{-\frac{E_{Fi}-E_{v}}{kT}}\\
+        &=N_cN_ve^{-\frac{E_c-E_v}{Kt}}\\
+        &=N_cN_ve^{-\frac{E_g}{Kt}}
+\end{align*}
+$E_g$ is the band gap.
+        }
+
+                \subcolumn{0.44}
+        \block{Intrinsic Fermi level}{
+\begin{align*}
+        n_i&=N_ce^{-\frac{E_c-E_{Fi}}{kT}}\\
+        &=N_ve^{-\frac{E_{Fi}-E_{v}}{kT}}\\
+        E_{Fi}&=\frac{1}{2}\left( E_c+E_v \right) +\frac{1}{2}kT\ln\left( \frac{N_v}{N_c} \right)\\
+        &=\frac{1}{2}\left( E_c+E_v \right) +\frac{3}{4}kT\ln\left( \frac{m_{p}^*}{m_n^*} \right)
+\end{align*}
+        }
+
+        \end{subcolumns}
+        \phantom{\block[bodyoffsety=7cm,titleoffsety=7cm]{hej}{}}
+        \column{0.5} 
+        \block{Thermal equilibrium electron distribution}{
+assumptions: $E>E_{c}$, $E_c-E_F\gg kT$ then $E-E_F \gg kT$
+\begin{align*}
+        n_0&=\int_{E_c}^{E_{\textup{max}}}g_c(E)f_F(E)dE\\
+        \intertext{$E_{\textup{max}}$ is the maximum possible energy, it can be assumed equal to $\infty$ (due to $f_F\xrightarrow[E\rightarrow\infty]{}0$)}
+        f_{F}(E)&=\frac{1}{1+\exp\left( \frac{E-E_{F}}{kT} \right)}\\
+        &\approx e^{-\frac{E-E_F}{kT}}\\
+        n_0&=\int_{E_c}^{\infty}\frac{4\pi(2m_a^*)^{\frac{3}{2}}}{h^3}\sqrt{E-E_c}\exp\left( -\frac{E-E_F}{kT} \right)\,dE\qquad\textup{Let:}\quad\eta=\frac{E-E_c}{kT}\\
+        &=\frac{4\pi\left( 2m_{n}^{*}kT \right)^{\frac{3}{2}}}{h^3}\exp\left( -\frac{E_c-E_F}{kT} \right)\underbrace{\int_0^{\infty}\eta^{\frac{1}{2}}e^{-\eta}\,d\eta }_{=\frac{\sqrt{\pi}}{2}}\\
+        &=\underbrace{2\left( \frac{2\pi m_{n}^*kT}{h^2} \right)^{\frac{3}{2}}}_{N_c}e^{-\frac{E_c-E_F}{kT}}\\
+        &=N_ce^{-\frac{E_c-E_F}{kT}}
+\end{align*}
+The same thing can be shown for holes, just swap $m_n^*$(effective mass of electron) with $m_p^*$(effective mass of hole) and $E-E_F$ with $E_F-E$ and $E_c-E_F$ with $E_F-E_v$.
+
+$N_{c}$ is the \emph{effective density of states function in the conduction band}
+
+For holes the constant is $N_v=2\left( \frac{2\pi m_{p}^*kT}{h^2} \right)^{\frac{3}{2}}$
+
+        }
+\end{columns}
+\titleblock{Extrinsic semiconductors}
+\begin{columns}
+        \column{0.5} 
+
+        \block{Probability function}{
+\begin{align*}
+        n_d&=\frac{N_d}{1+\frac{1}{2}\exp\left( \frac{E_d-E_F}{kT} \right)}\\
+        \intertext{$n_d$ is the density of electrons occupying a donor level, $N_d$ the concentration of donors and $E_d$ the donor energy level. $\frac{1}{2}$ is from spin (also degeneracy factor)}
+        &=N_d-N_d^+\\
+        \intertext{$N_d^+$ is the concentration of ionized donors, now assume $(E_d-E_F)\gg kT$:}
+        n_d&=\frac{N_d}{\frac{1}{2}\exp\left( \frac{E_d-E_F}{kT} \right)}\\
+        &=2N_d\exp\left( -\frac{E_d-E_F}{kT} \right)\\
+        n_0&=N_c\exp\left( -\frac{E_c-E_F}{kT} \right)\\
+        \frac{n_d}{n_d+n_0}&=\frac{2N_d\exp\left( -\frac{E_d-E_F}{kT} \right)}{2N_d\exp\left( -\frac{E_d-E_F}{kT} \right)+N_c\exp\left( -\frac{E_c-E_F}{kT} \right)}\\
+        &=\frac{1}{1+\frac{N_c}{2N_d}\exp\left( -\frac{E_c-E_d}{kT} \right)}
+\end{align*}}
+
+        \block{Fermi level position}{
+\begin{align*}
+        E_c-E_F&=kT\ln\left( \frac{N_c}{n_0} \right)\\
+        &=kT\ln\left( \frac{N_c}{N_d} \right)\\
+        \intertext{since}
+        N_d&\gg n_i\\
+        n_0&\simeq N_d
+        \intertext{for an $n$ type semiconductor. To get the intrinsic Fermi level:}
+        n_0&=n_ie^{\frac{E_F-E_{Fi}}{kT}}\\
+        &\Downarrow\\
+        E_{F}-E_{Fi}&=kT\ln\left( \frac{n_0}{n_i} \right)\\
+\end{align*}}
+        \column{0.5} 
+        \block{Dopant atoms}{
+
+                \begin{wrapfigure}{r}{10cm}\foldfig{width=10cm}{doner_acceptor}\end{wrapfigure}
+
+                Donors and acceptors change the properties, it also makes the semiconductor extrinsic instead of intrinsic.\vspace{1.5cm}}
+
+        \block{Extrinsic semiconductor}{
+
+                \begin{wrapfigure}{r}{19cm}\foldfig{width=19cm}{extrinsic_semiconductor}\end{wrapfigure}
+
+The donors/acceptors create a new equilibrium. This is gotten from adding and subtracting the intrinsic Fermi energy to the exponential term:
+\begin{align*}
+        n_0&=N_ce^{-\frac{(E_c-E_{Fi})+(E_F-E_{Fi})}{kT}}\\
+        &=\underbrace{N_ce^{-\frac{(E_c-E_{Fi})}{kT}}}_{n_i}e^{\frac{E_F-E_{Fi}}{kT}}\\
+        &=n_ie^{\frac{E_F-E_{Fi}}{kT}}\\
+        \intertext{This leads to a new product at thermal equilibrium:}
+        n_0p_0&=n_ie^{\frac{E_F-E_{Fi}}{kT}}n_ie^{\frac{E_{Fi}-E_{f}}{kT}}\\
+        &=N_cN_ve^{-\frac{E_g}{kT}}\\
+        &=n_i^2
+\end{align*}}
+        \block{Thermal equilibrium electron concentration}{
+A compensated semiconductor has both acceptor and donor impurities
+\begin{align*}
+        n_0+N_a^-&=p_0+N_d^+= n_0+(N_a-p_a)=p_0+(N_d-n_d)\\
+        \intertext{$n_d$ is the concentration of electrons in the donor states, $N_d^+$ the concentration of positively charged donor states, $p_a$ is the concentration of holes in the acceptor states, $N_a^-$ the concentration of negatively charged acceptor states}
+        n_0+N_a&=p_0+N_d\\
+        &=\frac{n_i^2}{n_0}+N_d\\
+        0&= n_0^2-\left( N_d-N_a \right)n_0-n_i^2\\
+        n_0&=\frac{N_d-N_a}{2}+\sqrt{\left( \frac{N_d-N_a}{2}^2+n_i^2 \right)}
+\end{align*}}
+\end{columns}
 \end{document}
