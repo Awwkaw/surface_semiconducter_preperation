@@ -1,0 +1,37 @@
+\documentclass[border = 1mm]{standalone}
+\input{../../../Preamble}
+        
+%tikz style figure
+% comment out for pgfplots style
+\begin{document}
+\begin{tikzpicture}
+        \draw[color=c2] (0,0) -- (3,0)node[right] {$E_{c}$}  (0,-2) --(3,-2) node[right] {$E_v$};
+        \draw[color=c2] (0,-0.4) -- ++(3,0)node[right] {$E_d$} ;
+        \foreach \x in {0,0.3, ...,3}
+        \node () at (\x,0.1) {-};
+        \foreach \x in {0,0.3, ...,3}
+        \node () at (\x,-0.6) {+};
+        \node () at (1.5,0.5) {Donor};
+
+
+        \draw[color=c2] (5,0) -- ++(3,0)node[right] {$E_{c}$}  (5,-2) --++(3,0) node[right] {$E_v$};
+        \draw[color=c2] (5,-1.5) -- ++(3,0)node[right] {$E_a$} ;
+        \foreach \x in {5,5.3, ...,8}
+        \node () at (\x,-1.65) {-};
+        \foreach \x in {5,5.3, ...,8}
+        \node () at (\x,-2.2) {+};
+        \node () at (6.5,0.5) {Acceptor};
+
+\end{tikzpicture}
+\end{document}
+
+%pgfplots style picture
+% comment tikzstyle figure out to get pgfplots style
+\begin{document}
+\begin{tikzpicture}
+        \begin{axis}
+                
+        \end{axis}
+\end{tikzpicture}
+\end{document}
+

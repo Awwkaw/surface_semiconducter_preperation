@@ -15,5 +15,5 @@
                 rectangle (blocktitle.north east);
         \fi
 }
-\newcommand{\titleblock}[1]{\useblockstyle{Justtitle}\block[bodyinnersep=-0.4cm]{#1}{}\useblockstyle{Default}}
+\newcommand{\titleblock}[2][]{\useblockstyle{Justtitle}\block[bodyinnersep=-0.4cm,#1]{#2}{}\useblockstyle{Default}}
 \newcommand{\foldfig}[2]{\includegraphics[#1]{#2/#2}}
