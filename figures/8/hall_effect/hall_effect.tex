@@ -1,0 +1,31 @@
+\documentclass[border = 1mm]{standalone}
+\input{../../../Preamble}
+        
+%tikz style figure
+% comment out for pgfplots style
+\begin{document}
+\begin{tikzpicture}
+        \draw[color=c2] (0,0) rectangle (4,4);
+        \draw[color=c2] (0,2) -- ++(-1,0) --node[left] {$I_x$}++(0,-3)--node[below]{$V_x$}++(6,0)--++(0,3) --++(-1,0);
+        \draw[color=c4] (2,0) --++(0,-0.5) --++(-2.5,0) --node[left] {$V_h$} ++(0,6) -- ++(2.5,0) --++(0,-1.5);
+        \draw[color=c4] (3,3) circle (0.5) node[right = 0.5cm] {$B_z$};
+        \fill[color=c4] (3,3) circle (0.125);
+        \draw[color = c4,->,dashed] (0.5,2) -- ++(1,0);
+        \draw[color = c4,->] (0.5,2) to[in=90,out=0] ++(1,-1.5);
+        \draw[color = c4,->,dashed] (3.5,2) -- ++(-1,0);
+        \draw[color = c4,->] (3.5,2) to[in=90,out=180] ++(-1,-1.5);
+        \draw[color=c2,->] (1.5,0.5) --node[midway,below,sloped] {$E_h$} ++(0,2);
+        \draw[color=c2,->] (2.5,2.5) --node[midway,below,sloped] {$E_h$} ++(0,-2);
+\end{tikzpicture}
+\end{document}
+
+%pgfplots style picture
+% comment tikzstyle figure out to get pgfplots style
+\begin{document}
+\begin{tikzpicture}
+        \begin{axis}
+                
+        \end{axis}
+\end{tikzpicture}
+\end{document}
+

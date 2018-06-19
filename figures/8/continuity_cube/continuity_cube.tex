@@ -1,0 +1,25 @@
+\documentclass[border = 1mm]{standalone}
+\input{../../../Preamble}
+        
+%tikz style figure
+% comment out for pgfplots style
+\begin{document}
+\begin{tikzpicture}
+        \draw[color=c2] (0,0) rectangle (4,4);
+        \draw[color=c4,->] (0,2) --node[above] {$F_{px}^+(x)$} ++(2,0); 
+        \draw[color=c4,->] (4,2) --node[above] {$F_{px}^+(x+dx)$} ++(2,0); 
+        \node () at (-0.1,-0.1) {$x$};
+        \node () at (4.1,-0.1) {$x+dx$};
+\end{tikzpicture}
+\end{document}
+
+%pgfplots style picture
+% comment tikzstyle figure out to get pgfplots style
+\begin{document}
+\begin{tikzpicture}
+        \begin{axis}
+                
+        \end{axis}
+\end{tikzpicture}
+\end{document}
+
