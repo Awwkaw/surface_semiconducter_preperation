@@ -1,9 +1,101 @@
 \input{../Preamble_short}
-\title{\centering\parbox{\linewidth}{Surface structure and low energy electron difraction}}
+\title{\centering\parbox{\linewidth}{Transport and non equilibrium behaviour in semiconductors.}}
 \author{Thorbjørn Erik Køppen Christensen}
 
-
 \begin{document}
-\maketitle[width=65cm]
+\maketitle[width=75cm]
+\titleblock{Carrier transport phenomena}
+\begin{columns}
+        \column{0.5}
+\block{Carrier drift}{
+\begin{align*}
+        J_{\textup{drf}} &= \rho v_d\\
+        \intertext{$\rho$ is the charge density, $v_d$ the drift current}
+        J_{p\vert \textup{drf}}&=(ep)v_{dp}\\
+        \intertext{$v_p$ is the average drift velocity of holes, and $J_{p\vert \textup{drf}}$ the drift current density due to holes.}
+        F&=m_{cp}^*a=m_{cp}^*\frac{d_v}{dt}=eE\\
+        \intertext{is the equation of motion $e$ is the magnitude of the electron charge $E$ the electric field and $m_{cp}^*$ the effective mass $a$ the acceleration}
+        v_{dp}&=\mu_{p}\\
+        \intertext{$\mu_p$ is the hole mobility}
+        J_{p\vert \textup{drf}}&=e\mu_{p}pE\\
+        \intertext{In total:}
+        J_{\textup{drf}}&=e(\mu_nn+\mu_pp)E\\
+        \intertext{$v$ is the velocity due to the electric field:}
+        v&=\frac{eEt}{m_{cp}^*}
+        \intertext{Now let the time between collisions be $\tau_{cp}$}
+        \langle v_d\rangle &= \frac{1}{2}\frac{eE\tau_{cp}}{m_{cp}^*}\\
+        \mu_p&=\frac{v_{dp}}{E}=\frac{e\tau_{cp}}{m_{cp}^*}\\
+        \intertext{There are two types of scattering, lattice and ionized:}
+        \mu_L &\propto T^{-3/2}\\
+        \mu_I &\propto \frac{T^{3/2}}{N_I}\\
+        \frac{dt}{\tau}&= \frac{dt}{\tau_I}+\frac{dt}{\tau_L}\\
+        \frac{1}{\mu}&=\frac{1}{\mu_I}+\frac{1}{\mu_L}\\
+        J_{\textup{drf}}&=e(\mu_nn+\mu_pp)E=\sigma E =\frac{1}{\rho}E\\
+        J&= \frac{I}{A} \quad E=\frac{V}{L}\\
+        \frac{I}{A}&=\sigma \frac{V}{L}\\
+        V&=\frac{L}{\sigma A}I=\frac{\rho L}{A}I=IR\\
+        \intertext{ohms law. now think p-tpe such that $N_{a}\gg n_i$}
+        \sigma&=e(\mu_nn+\mu_pp)\approx e\mu_{p}p\approx \frac{1}{\rho}\\
+        \intertext{For an intrinsic material}
+        \sigma&=e(\mu_n+\mu_p)n_i\\
+        v_n&=\frac{v_s}{\sqrt{1+\left( \frac{E_{on}}{E} \right)^2}} \approx\left( \frac{E}{E_{on}} \right)v_s\\
+\end{align*}}
+        \column{0.5}
+        \begin{subcolumns}
+        \subcolumn{0.6}
+\block{Carrier diffusion}{
+        \foldfig{width=20cm}{diffusion_current}
 
+\begin{align*}
+        F_n&= \frac{1}{2} n(-l) v_{th} - \frac{1}{2} n(+l) v_{th} = \frac{1}{2} v_{th} \left[ n(-l) - n(+l) \right]\\
+        \intertext{Taylor expansion}
+        F_n&= \frac{1}{2} v_{th} \left( \left[ n(0)-\frac{dn}{dx} \right]-\left[ n(0)+l \frac{dn}{dx} \right] \right)\\
+        &=-v_{th}l \frac{dn}{dx}\\
+        J&=-eF_n=+ev_{th}l \frac{dn}{dx}\\
+        J_{nx\vert \textup{dif}}&=eD_n \frac{dn}{dx}\\
+        J_{px\vert \textup{dif}}&=-eD_p \frac{dp}{dx}\\
+        \intertext{The total current is then}
+        J&=en\mu_nE_x+ep\mu_pE_x+eD_n \frac{dn}{dx} - eD_p \frac{dp}{dx}\\
+        J&= en\mu_nE+ep\mu_pE+eD_n\nabla n -eD_p\nabla p\\
+\end{align*}}
+\block{Graded impurity distribution}{
+\begin{align*}
+        \phi&= \frac{1}{e}\left( E_F - E_{Fi} \right)\\
+        E_x &= - \frac{d\phi}{dx}=\frac{1}{e}\frac{dE_{Fi}}{dx}\\
+        \intertext{assuming  quasi neutrality}
+        n_0&=n_i\exp\left[ \frac{E_F-E_{Fi}}{kT} \right]\approx N_d(x)\\
+        E_F-E_{Fi}&=kT\ln\left( \frac{N_d(x)}{n_i} \right)\\
+        -\frac{dE_{Fi}}{dx}&=\frac{kT}{N_d(x)}\frac{dN_d(x)}{dx}\\
+        E_x&=-\frac{kT}{e}\frac{1}{N_d(x)}\frac{dN_d(x)}{dx}\\
+        \intertext{no electrical connection and thermal equilibrium:}
+        J_n&=0=en\mu_nE_x+eD_n \frac{dn}{dx}\\
+        \intertext{assume quasi-neutrality ($n\approx N_d(x)$)}
+        &=eN_d(x)\mu_nE_x+eD_n \frac{dN_d(x)}{dx}\\
+        &=-e\mu_nN_d(x) \frac{kT}{e} \frac{1}{N_d(x)}\frac{dN_d(x)}{dx} + eD_n \frac{dN_d(x)}{dx}\\
+        \intertext{this needs the conditions (known as the Einstein relations}
+        \frac{D_n}{\mu_n}&=\frac{D_p}{\mu_p}=\frac{kT}{e}
+\end{align*}}
+
+        \subcolumn{0.4}
+\block{The Hall effect}{
+        \foldfig{width=10cm}{hall_effect}
+\begin{align*}
+        F&=qv\times B\\
+        \intertext{As the holes and electrons move in the same direction the important thing is wheter or not there's an excess of one or the other. that's the case in an p or n type semiconducter. An electric field will then be made to compensate for this field:}
+        F&=q\left[ E+v\times B \right]=0\\
+        qE_{y}&=qv_{x}B_z\\
+        v_H&=v_xWB_z\\
+        v_{dx}&=\frac{J_x}{ep}=\frac{I_x}{epWd}\\
+        v_H&=\frac{I_xB_z}{epd}\\
+        p&=\frac{I_{x}B_z}{edV_H}\\
+        v_H&=\frac{I_xB_z}{end}\\
+        n&=-\frac{I_{x}B_z}{edV_H}\\
+        J_x&=ep\mu_pE_x\\
+        \frac{I_{x}}{Wd}&=\frac{epp\mu_{p}V_x}{L}\\
+        \mu_p&=\frac{I_xL}{epV_xWd}\\
+        \mu_n&=\frac{I_xL}{enV_xWd}
+\end{align*}
+In the above $L$ is the length of the semiconductor in the direction of the current, $W$ is the length of the semiconductor in the direction of neither the current nor the magnetic field, $d$ is the length of the semiconductor in the direction of the magnetic field.}
+\end{subcolumns}
+\end{columns}
 \end{document}

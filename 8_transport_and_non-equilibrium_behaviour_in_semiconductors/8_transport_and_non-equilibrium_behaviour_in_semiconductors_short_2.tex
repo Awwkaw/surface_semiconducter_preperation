@@ -1,0 +1,131 @@
+\input{../Preamble_short}
+\title{\centering\parbox{\linewidth}{Transport and non equilibrium behaviour in semiconductors.}}
+\author{Thorbjørn Erik Køppen Christensen}
+
+\begin{document}
+\maketitle[width=75cm]
+\titleblock[bodyoffsety=5cm,titleoffsety=5cm]{Nonequilibrium excess carriers in semiconductors}
+\begin{columns}
+        \column{0.55}
+        \begin{subcolumns}
+                \subcolumn{0.6}
+\block{Characteristic of excess carriers}{
+\begin{align*}
+        F_{px}^+(x+dx)&=F_{px}^+(x)+ \frac{\partial F_{px}^+}{\partial x}\cdot dx\\
+        \frac{\partial p}{\partial t}dxdydz&=\left[ F_{px}^+(x+dx) \right]dydz=-\frac{\partial F_{px}^+}{\partial x}dxdyxz\\
+        \frac{\partial p}{\partial t}dxdydz&=-\frac{\partial F_{px}^+}{\partial x}dxdyxz + g_pdxdydz-\frac{p}{\tau_{pt}}dxdydz\\
+        \intertext{$p$ is the density of holes, $\tau_{pt}$ thermal-equilibrium and excess carriar lifetimes}
+        \frac{\partial p}{\partial t}&=-\frac{\partial F_{p}^+}{\partial x} + g_p-\frac{p}{\tau_{pt}}\\
+%       \frac{\partial n}{\partial t}&=-\frac{\partial F_{n}^-}{\partial x} + g_n-\frac{n}{\tau_{nt}}\\
+        J_p&=e\mu_ppE-eD_p \frac{\partial p}{\partial x}\\
+%       J_n&=e\mu_nnE-eD_n \frac{\partial n}{\partial x}\\
+        \frac{J_p}{+e}&=F_{p}^+=\mu_ppE-D_p \frac{\partial p}{\partial x}\\
+%       \frac{J_n}{-e}&=F_{n}^+=\mu_nnE-D_n \frac{\partial n}{\partial x}\\
+        \frac{\partial p}{\partial t}&=-\mu_p \frac{\partial(pE)}{\partial x} + D_p \frac{\partial^2 p}{\partial x^2} + g_p-\frac{p}{\tau_{pt}}\\
+%       \frac{\partial n}{\partial t}&=-\mu_n \frac{\partial(nE)}{\partial x} + D_n \frac{\partial^2 n}{\partial x^2} + g_n-\frac{n}{\tau_{nt}}\\
+        \intertext{With one dimensionality in mind}
+        \frac{\partial(pE)}{\partial x}&=E \frac{\partial p}{\partial x} + p\frac{\partial E}{\partial x}\\
+        \intertext{In the 3d case:}
+        \frac{\partial p}{\partial t} &=D_p \frac{\partial^2 p}{\partial x^2}- \mu_p \left( E \frac{\partial p}{\partial x} + p \frac{\partial E}{\partial x} \right)+g_p-\frac{p}{\tau_{pt}}\\
+%       \frac{\partial n}{\partial t} &=D_n \frac{\partial^2 n}{\partial x^2}- \mu_n \left( E \frac{\partial n}{\partial x} + n \frac{\partial E}{\partial x} \right)+g_n-\frac{n}{\tau_{nt}}\\
+        \intertext{For a homogeneous semiconductor:}
+ \frac{\partial \delta p}{\partial t}&=D_p \frac{\partial^2 \delta p}{\partial x^2}- \mu_p \left( E \frac{\partial \delta p}{\partial x} + p \frac{\partial E}{\partial x} \right)+g_p-\frac{p}{\tau_{pt}}\\
+%\frac{\partial \delta n}{\partial t}&=D_n \frac{\partial^2 \delta n}{\partial x^2}- \mu_n \left( E \frac{\partial \delta n}{\partial x} + n \frac{\partial E}{\partial x} \right)+g_n-\frac{n}{\tau_{nt}}\\
+\end{align*}}
+\subcolumn{0.37}
+\block{Quasi Fermi energy levels}{
+When excess carriers are present there's no thermal equilibrium, so the Fermi level is not defined, but one can define quasi Fermi levels.
+\begin{align*}
+        n_0&=n_i\exp\left( \frac{E_{F}-E_{Fi}}{kT} \right)\\
+        p_0&=n_i\exp\left( \frac{E_{Fi}-E_{F}}{kT} \right)\\
+        n_0 + \delta n&=n_i\exp\left( \frac{E_{Fn}-E_{Fi}}{kT} \right)\\
+        p_0 + \delta p&=n_i\exp\left( \frac{E_{Fi}-E_{Fp}}{kT} \right)\\
+\end{align*}}
+\block{Figure}{
+        \foldfig{width=10cm}{continuity_cube}}
+\end{subcolumns}
+\block{Excess carrier lifetime}{
+It's important the speed at which generation and recombination occurs a state in the energy within the bandgap is called a trap, and can act as a recombination center.
+4 processes can hapen therere
+1: Electrons jump from conducting band to the trap
+\begin{align*}
+        R_{cn}&=C_nN_t\left[ 1-f_{F}(E_t) \right]n
+        \intertext{$R_{cn}$ is the capture rate, $C_n$ ta constant proportional to the electron-capture cross section, $N_t$ the concentration of traps, $n$ the electron concentration in the conducting band and $f_{F}(E_t)$ the fermi function at the trap energy:}
+        f_{F}(E_t)&=\frac{1}{1+\exp\left( \frac{E_t-E_F}{kT} \right)}\\
+        \intertext{Process 2 describes electrons escaping from a negatively charged hole:}
+        R_{en}&=E_nN_tf_{F}(E_t)\\
+        \intertext{$R_{en}$ is the emmision rate, $E_n$ a constant and $f_{F(E_t)}$ the probability that the trap is occupied. At thermal equilibrium:}
+        R_{en}&=R_{cn}\\
+        E_nN_tf_{F0(E_t)}&=C_nN_t\left[ 1-f_{F0}(E_t) \right]n_0\\
+        E_n&=n'C_n\\
+        n'&=N_c\exp\left[ -\frac{E_c-E_t}{kT} \right]\\
+        \intertext{$n'$ corrosponds to  the electron concentration in the conducting band if $E_t=E_F$, outside equilibrium:}
+        R_n&=R_{cn}-R_{en}\\
+        &=\left[ C_nN_t(1-f_{F}(E_t))n \right]-\left[ E_nN_tf_F(E_t) \right]\\
+        &=C_nN_t\left[ n(1-f_F(E_t))-n'f_F(E_t) \right]\\
+        \intertext{The same two processes exists for the holes:}
+        R_p&=C_pN_t\left[ p(1-f_F(E_t))-p'(1-f_F(E_t)) \right]\\
+        p'&=N_c\exp\left[ -\frac{E_t-E_v}{kT} \right]\\
+        f_F(E_t)&=\frac{C_nn+C_pp'}{C_n(n+n')+C_p(p+p')}\qquad \textup{By $R_p=R_n$}\\
+        R_n=R_p\equiv R &=\frac{C_nC_pN_t(np-n_i^2)}{C_n(n+n')+C_p(p+p')}=\\frac{\delta n}{\tau}\\
+        \intertext{Now apllying the conditions of extrinsic doping and low injection, for an n type:}
+        n_0\gg p_0,\quad n_0\gg \delta p,&\quad n_0\gg n', n_0\gg p'\\
+        R &=C_pN_t\delta p\\
+        \frac{\delta n}{\tau}&=C_pN_t\delta p\equiv \frac{\delta p}{\tau_{p0}}\\
+        \tau_{p0}&=\frac{1}{C_pN_t}
+\end{align*}
+The fewer the number of excess carriers the longer the lifetime.}
+
+%\begin{subcolumns}
+%        \subcolumn{0.6}
+%\end{subcolumns}
+
+        \column{0.45}
+        \block{Ambipolar transport}{
+        \begin{wrapfigure}{r}{10cm}\foldfig{width=10cm}{ambipolar_transport_principle}\end{wrapfigure}
+
+\begin{align*}
+        \nabla\cdot E_{\textup{int}}&=\frac{e(\delta p-\delta n}{\epsilon_s}=\frac{\partial E_{\textup{int}}}{\partial x}\\
+        \intertext{$\epsilon_s$ is the permittivity of the semi conductor, form here on we assume $\lvert E_{\textup{int}}\rvert\ll\lvert E_{\textup{app}}\rvert$, and charge neutrality, the excess hole concentration will be balanced by an equal excesss hole conentration. now define: }
+        g_n&= g_p\equiv g\\
+        R_n &= \frac{n}{\tau_{nt}}=R_{p}=\frac{p}{\tau_{pt}}=R\\
+        \frac{\partial \delta p}{\partial t}&=D_p \frac{\partial^2 \delta p}{\partial x^2}- \mu_p \left( E \frac{\partial \delta p}{\partial x} + p \frac{\partial E}{\partial x} \right)+g_p-R\\
+        \frac{\partial \delta n}{\partial t}&=D_n \frac{\partial^2 \delta n}{\partial x^2}- \mu_n \left( E \frac{\partial \delta n}{\partial x} + n \frac{\partial E}{\partial x} \right)+g_n-R\\
+        \left( \mu_nn+\mu_pp \right)\frac{\partial \delta n}{\partial t}&=\left( \mu_nnD_p+\mu_ppD_n \right)\frac{\partial^2\delta n}{\partial x ^2}\\&\quad+(\mu_n\mu_p)(p-n)E \frac{\partial \delta n}{\partial x}+\left( \mu_nn+\mu_pp \right)(g-R)\\
+        D'\frac{\partial  ^2\delta n}{\partial x}+\mu'E \frac{\partial \delta n}{\partial x} +g -R &= \frac{\partial \delta n}{\partial t}\\
+        D'&= \frac{\mu_nnD_p+\mu_ppD_n}{\mu_nn+\mu_pp}\\
+        \mu'&= \frac{\mu_n\mu_p(p-n)}{\mu_nn+\mu_pp}\\
+        \intertext{The three above equations are the ``ambipolar transport equation'', ``ambipolar diffusion coefficient'' and the ``ambipolar mobility'', The einstein releation holds:}
+        \frac{\mu_n}{D_n}&=\frac{\mu_p}{D_p}=\frac{e}{kT}\\
+        D'&=\frac{D_nD_p(n+p)}{D_nn+D_pp}\\
+        \intertext{now with low-level injection:}
+        &= \frac{D_nD_p(n_0+\delta n+p_0+\delta n)}{D_n(n_0+delta n+D_p(p_0+\delta n)}\\
+        D'&=D_n\\
+        \mu'&=\mu_n\\
+        \intertext{Thus the minority carrier becomes the most important for ambipolar transport under low level injection. Now fr generation/recombination}
+        R_n=R_p&=\frac{n}{\tau_{nt}}=\frac{p}{\tau_{pt}}=R\\
+        \intertext{For the minority carrier $\tau_{it}=\tau_t$ where $i$ is either $n$ or $p$}
+        g-R=g_n-R&=\left( G_{n0}+g'_n \right)-(R_{n0}+R_n')\\
+        G_{n0}&=R_{n0}\\
+        g-R=g_n-R=g'_n -R_n'&=g_{n}'-\frac{\delta n}{\tau_n}\\
+        \intertext{same for hole generation}
+        D_n \frac{\partial^2 \delta n}{\partial x^2}- \mu_n  E \frac{\partial \delta n}{\partial x} + g'-\frac{n}{\tau_{n0}}&=\frac{\partial \delta n}{\partial t}\\
+        D_p \frac{\partial^2 \delta p}{\partial x^2}- \mu_p  E \frac{\partial \delta p}{\partial x} + g'-\frac{p}{\tau_{p0}}&=\frac{\partial \delta p}{\partial t}\\
+        \intertext{The dielectric relaxation time constant}
+        \nabla \cdot E&=\frac{\rho}{\epsilon}\\
+        J&=\sigma E\\
+        \nabla \cdot J=&-\frac{\partial \rho}{\partial t}=\sigma\nabla\cdot E=\frac{\sigma\rho}{\epsilon}\\
+        &=-\frac{\partial \rho}{\partial t}=-\frac{d\rho}{dt}\\
+        \frac{d\rho}{dt}+\frac{\sigma}{\epsilon}\rho&=0\\
+        \rho(t)&=\rho(0)e^{-\frac{t}{\tau_d}}\quad \tau_d=\frac{\epsilon}{\sigma}\\
+        \intertext{Haynes--Shockley: A field of $v_1$ is applied to a semiconductor, a pulse is sent through the semiconductor and travels a distance $d$ inside it:}
+        x-\mu_pE_0t&=0\qquad x=d\\
+        \mu_p&=\frac{d}{E_0t_0}\\
+        (d-\mu_pE_0t)^2&=4D_pt\\
+        D_p&=\frac{(\mu_pE_0\Delta t)^2}{16t_0}\\
+        \Delta t&=t_2-t_1\\
+        S&=K\exp\left( -\frac{t_0}{\tau_{p0}} \right)=K\exp\left( -\frac{d}{\mu_pE_0\tau_{pd}} \right)
+\end{align*}
+is the area under the curve.}
+\end{columns}
+\end{document}
