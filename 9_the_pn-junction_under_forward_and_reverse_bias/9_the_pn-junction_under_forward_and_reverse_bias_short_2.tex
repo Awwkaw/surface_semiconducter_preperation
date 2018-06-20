@@ -1,104 +1,16 @@
-\documentclass[article,oneside]{memoir}
-\input{../Preamble}
-\title{The pn junction under forward and reverse bias}
+\input{../Preamble_short}
+\title{\centering\parbox{\linewidth}{The pn-junction under forward and reverse bias}}
 \author{Thorbjørn Erik Køppen Christensen}
+
+
 \begin{document}
 \maketitle
-%This should cover chapter 7.1--7.3, 8.1.1--8.1.6 and 8.2  in the book
-%pages 241--258 + 276--292 + 295--304
-\part{The pn junction}
-\chapter{Basic structure of the pn junction}
-A space charge region appears between the n and p junctions:
+\titleblock[titleoffsety=1cm,bodyoffsety=1cm]{The pn-junction diode}
+\begin{columns}
+        \column{0.5}
+\block{pn junction current}{
 
-\foldfig{width=\columnwidth}{pn_junction_basic}
-
-Note the space charge region and how the electrons from the n-type move to the holes in the p-type
-\chapter{Zero applied Bias}
- 
-\foldfig{width=\columnwidth}{pn_junction_zero_bias}
-
-\begin{align*}
-        V_{bi}&=\lvert\phi_{Fn}\rvert+\lvert\phi_{Fp}\rvert\\
-        \intertext{$V_{bi}$ is the build in potential barrier, the $\phi$ values are the differences in from the Fermi level to the intrinsic Fermi level, in the n region ($N_d\approx n_0$)}
-        n_0&=N_c\exp\left[ -\frac{E_{c}-E_{F}}{kT} \right]=n_{i}\exp\left[ \frac{E_{F}-E_{Fi}}{kT} \right]\\
-        e\phi_{Fn} &=E_{Fi}-E_{F}\\
-        n_0&=N_c\exp\left[ -\frac{e\phi_{Fn}}{kT} \right]\\
-        \intertext{For the p type}
-        p_0=N_a&=n_i\exp\left[ \frac{E_{Fi}-E_{F}}{kT} \right]=n_i\exp\left[ \frac{e\phi_{Fp}}{kT} \right]\\
-        \phi_{Fn}=-\frac{kT}{e}\ln\left( \frac{N_d}{n_i} \right)&\qquad \phi_{Fp}=+\frac{kT}{e}\ln\left( \frac{N_a}{n_i} \right)\\
-        \intertext{Thus:}
-        V_{bi}&=V_t\ln\left( \frac{N_aN_d}{n_i^2} \right)\\
-\end{align*}
-
-\foldfig{width=0.4\columnwidth}{pn_junction_space_charge_density}
-\foldfig{width=0.4\columnwidth}{pn_junction_space_charge_e_field}
-
-Here it's assumed that the space charge region is strictly within $-x_p$--$x_n$.
-\begin{align*}
-        \frac{d^2\phi(x)}{dx^2}&=\frac{-\rho(x)}{\epsilon_s}=-\frac{dE(x)}{dx}\\
-        \rho(x)&= 
-        \begin{dcases}
-                -eN_a\qquad&\forall x \in [-x_p;0]\\
-                eN_d\qquad &\forall x \in [0;x_n]
-        \end{dcases}\\
-        E=\int \frac{\rho(x)}{\epsilon_s}\,dx&=-\int \frac{eN_a}{\epsilon_s}\,dx=-\frac{eN_a}{\epsilon_s}x+C_1\\
-        E&=-\int \frac{eN_d}{\epsilon_s}\,dx=\frac{eN_d}{\epsilon_s}x+C_1\\
-        \intertext{$C_1$ and $C_2$ is from integration, now let $E=0$ at $x=-x_p$ and $x=x_n$:}
-        E&= 
-        \begin{dcases}
-                -\frac{eN_a}{\epsilon_s}(x+x_p)&\forall x\in [-x_p;0]\\
-                \frac{eN_d}{\epsilon_s}(x-x_n)&\forall x\in [0;x_n]
-        \end{dcases}\\
-        N_ax_p&=N_dx_n\\
-        \phi(x) &=-\int E(x) \, dx \\
-        &=\int \frac{eN_a}{\epsilon_s}(x+x_p)\,dx\\
-        &=\frac{eN_a}{\epsilon_s}(\frac{x^2}{2}+ x\cdot x_p)+C_1'\,dx\\
-        C_1'&=\frac{eN_a}{2\epsilon_s}x_p^2\qquad\textup{because of the zero location}\\
-        \phi(x)&= \frac{eN_a}{2\epsilon_s}(x+x_p)^2\qquad\forall x\in\left[ -x_p;0 \right]\\
-        \intertext{now for the n region:}
-        \phi(x)&=\int \frac{eN_d}{\epsilon_s}(x-x_n)\,dx\\
-        &=\frac{eN_d}{\epsilon_s}(x\cdot x_n-\frac{x^2}{2} )+C_2'\,dx\\
-         C_2'&=C_1'\\
-        \phi(x)&= \frac{eN_d}{\epsilon_s}\left(x\cdot x_n-\frac{x^2}{2}\right)^2+ \frac{eN_a}{2\epsilon_s}x_p^2\qquad\forall x\in\left[ 0;x_n \right]\\
-        V_{bi}&=\frac{e}{2\epsilon_s}\left( N_dx_n^2+N_ax_p^2 \right)=\lvert\phi(x=x_n)\rvert\\
-        \intertext{Space charge width:}
-        x_p&=\frac{N_d}{N_a}x_n\\
-        x_n&=\left\{ \frac{2\epsilon_s V_{bi}}{e}\left[ \frac{N_a}{N_d} \right]\left[ \frac{1}{N_a+N_d} \right] \right\}^{\frac{1}{2}}\\
-        x_p&=\left\{ \frac{2\epsilon_s V_{bi}}{e}\left[ \frac{N_d}{N_n} \right]\left[ \frac{1}{N_a+N_d} \right] \right\}^{\frac{1}{2}}\\
-        W=x_n+x_p&=\left\{ \frac{2\epsilon_{s}V_{bi}}{e}\left[ \frac{N_a+N_d}{N_aN_d} \right] \right\}^{\frac{1}{2}}
-\end{align*}
-\chapter{Reverse applied bias}
-Reverse bias: Positive on the n side 
-
-\foldfig{width=\columnwidth}{pn_junction_under_reverse_bials}
-
-\begin{align*}
-        V_{\textup{total}}&=\lvert\phi_{Fn}\rvert + \lvert\phi_{Fp}\rvert+ V_R\\
-        &=V_{bi}+V_R\\
-        \intertext{New width:}
-        W=x_n+x_p&=\left\{ \frac{2\epsilon_{s}(V_{bi}+V_R)}{e}\left[ \frac{N_a+N_d}{N_aN_d} \right] \right\}^{\frac{1}{2}}\\
-        E_{\textup{max}}&=-\frac{eN_dx_n}{\epsilon_s}=-\frac{eN_ax_p}{\epsilon_s}\\
-        &=-\sqrt{\frac{2e\left( V_{bi}+V_{R} \right)}{\epsilon_s}\left( \frac{N_aN_d}{N_a+N_d} \right)}\\
-        &=-\frac{2\left( V_{bi}+V_{R} \right)}{W}
-\end{align*}
-Junction capacitance:
-
-\foldfig{width=\columnwidth}{pn_junction_capacitance}
-
-\begin{align*}
-        dQ'&=eN_ddx_n=eN_adx_p\\
-        C'&=\frac{dQ'}{dV_{R}}=eN_d \frac{dx_n}{dV_R}\\
-        &=\sqrt{\frac{e\epsilon_sN_aN_d}{2(V_{bi}+V_R)(N_a+N_d)}}=\frac{\epsilon_s}{W}\\
-        \intertext{One sided junction ($N_a\gg N_d$, known as $p^+n$ junction, opposite the other way) }
-        W&\approx \sqrt{\frac{2\epsilon_s(V_{bi}+V_{R})}{eN_d}}\\
-        x_p&\ll x_n\\
-        W&\approx x_n\\
-        C'&\approx\sqrt{\frac{e\epsilon_sN_d}{2(V_{bi}+V_R)}}
-\end{align*}
-\part{The pn junction diode}
-\chapter{pn junction current}
-
-\foldfig{width=\columnwidth}{pn_junction_under_forward_and_reverse_bias}
+\foldfig{width=0.4\colwidth}{pn_junction_under_forward_and_reverse_bias}
 
 \begin{itemize}
         \item The abrupt depletion layer approximation applies. The space charge regions
@@ -144,8 +56,9 @@ region.
         &=\frac{eD_pp_{n0}}{L_p}\left[ \exp\left( \frac{eV_a}{kT} \right)-1 \right]\\
         J_n(-x_p)&=\frac{eD_nn_{p0}}{L_n}\left[ \exp\left( \frac{eV_a}{kT} \right)-1 \right]\\
         J&=\underbrace{\left[ \frac{eD_pp_{n0}}{L_p}+\frac{eD_nn_{p0}}{L_n} \right]}_{J_s}\left[ \exp\left( \frac{eV_a}{kT} \right)-1 \right]\\
-\end{align*}
-\chapter{Generation-recombination currents and high-injection levels}
+\end{align*}}
+\column{0.5}
+\block{Generation-recombination currents and high-injection levels}{
 \begin{align*}
         R&=\frac{C_nC_pN_t(np-n_i^2}{C_n(n+n')+C_p(p+p')}\\
         \intertext{Reverse bias:}
@@ -180,6 +93,7 @@ region.
         \delta n \delta p&\approx n_i^2\exp\left( \frac{V_a}{V_t} \right)\\
         \delta n =\delta p&\approx n_i^2\exp\left( \frac{V_a}{2V_t} \right)\\
         I\propto\exp\left( \frac{V_a}{2V_t} \right)
-\end{align*}
+\end{align*}}
 
+\end{columns}
 \end{document}
