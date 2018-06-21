@@ -1,9 +1,107 @@
 \input{../Preamble_short}
-\title{\centering\parbox{\linewidth}{Surface structure and low energy electron difraction}}
+\title{\centering Semiconductor devices}
 \author{Thorbjørn Erik Køppen Christensen}
 
 
 \begin{document}
-\maketitle[width=65cm]
+\maketitle
+\titleblock[titleoffsety=1cm,bodyoffsety=1cm]{Fundamentals of the Metal-Oxide-Semiconductor Field-Effect Transistor (MOSFET)}
+\begin{columns}
+        \column{0.5}
+\block{The two-terminal MOS structure}{
 
+\foldfig{width=0.3\colwidth}{basic_mos_structure}
+\foldfig{width=0.3\colwidth}{mos_charge_distribution}
+
+The MOS structure is similar to that of the plate capacitor:
+\begin{align*}
+        C&=\frac{\epsilon}{d} \\
+        Q'&=C'V\\
+        E&=\frac{V}{d}\\
+ %       \intertext{By applying either a positive or negative voltage to the p type semiconductor, one can create an accumulation or depletion layer, the thickness of this layer is interesting (here depletion layer)}
+        \phi_{fp}&=V_t\ln\left( \frac{N_a}{n_i} \right)\\
+        x_d&=\sqrt{\frac{2\epsilon\phi_{s}}{eN_a}}\\
+ %       \intertext{$\phi_s$ is the surface potential: difference between $E_{Fi}$ at bulk and surface, the inversion threshold is when $\phi_s=-2\phi_{fp}$ and inversion occurs, it's the threshold voltage where the space charge region doesn't become larger, but more electrons can still go in the conducting band:}
+        x_{dT}&=\sqrt{\frac{4\epsilon\phi_{fp}}{eN_a}}\\
+ %       \intertext{Same holds for n types, (change $N_a$ with $N_d$.- Now one can find the surface charge density:}
+        n&=n_{i}\exp\left[ \frac{E_{F}-E_{Fi}}{kT} \right]\\
+        n_s&=n_{i}\exp\left[ \frac{\phi_{fp}+\Delta \phi_{s}}{V_t} \right]=\underbrace{n_i\exp\left( \frac{\phi_{fp}}{V_t} \right)}_{n_{st}}\exp\left( \frac{\Delta \phi_{s}}{V_t} \right)\quad \Delta\phi_s>2\phi_{fp}\\
+%\begin{wraprigure}{r}{10cm}\foldfig{width=0.4\colwidth}{mos_band_gap_through_oxide}\end{wrapfigure}
+        e\phi_m'+eV_{ox0}&=e\chi'+\frac{E_g}{2}-e\phi_{s0}e\phi_{Jfp}\\
+        \intertext{$V_{ox}0$ is the potential drop across the oxide, $\phi_m'$ the modified metal work function}
+        V_{ox0}+\phi_{s0}&=-\left[ \phi_{m}'-\left( \chi'+\frac{E_g}{2e}+\phi_{fp} \right) \right]
+        \intertext{The metal semiconductor workfunction is then:}
+        \phi_{ms}&\equiv\left[ \phi_{m}'-\left( \chi'+\frac{E_g}{2e}+\phi_{fp} \right) \right]\\
+        \phi_{ms_{np}}&=\pm\left( \frac{E_g}{2e}-\phi_{fp} \right)\\
+        V_{ox0}+\phi_{s0}&=-\phi_{ms}\\
+        V_g&=\Delta V_{ox}+\Delta \phi_s=\left( V_{ox}-V_{ox0} \right) +\left( \phi_{s0}-\phi_{s0} \right)\\
+        &=V_{ox}+\phi_{s}+\phi_{ms}\\
+        \intertext{For flaatband}
+        Q_m'+Q_{ss}'&=0\\
+        V_{ox}&=\frac{Q_m'}{C_{ox}}=\frac{-Q_{ss}'}{C_{ox}}\\
+        V_G&=V_{FB}=\phi_{ms}-\frac{Q_{ss}'}{C_{ox}}\\
+        Q_{mT}'+Q_{ss}'&=\lvert Q_{SD}'(\textup{max})\rvert\\
+        \lvert Q_{SD}'(\textup{max})\rvert&=eN_ax_{dT}\\
+        V_{G}&=V_{ox}+\phi_{s}+\phi_{ms}\\
+        \intertext{at threshold $V_G=V_{TN}$}
+        V_{TN}&=V_{xoT}02\phi_{fp}+\phi_{ms}\\
+        V_{oxT}&=\frac{Q_{mT}'}{C_{ox}}\\
+        &=\frac{1}{C_{ox}}\left( \lvert Q_{SD}'(\textup{max})\rvert -Q_{ss}' \right)\\
+        V_{TN}&=\frac{1}{C_{ox}}\left( \lvert Q_{SD}'(\textup{max})\rvert -Q_{ss}'\right)+\phi_{ms}+2\phi_{fp}\\
+        &=\frac{t_{ox}}{\epsilon_{ox}}\left( \lvert Q_{SD}'(\textup{max})\rvert -Q_{ss}'\right)+\phi_{ms}+2\phi_{fp}\\
+        &=\frac{\lvert Q_{SD}'(\textup{max}\rvert}{C_{ox}}+V_{FB}+2\phi_{fp}\\
+        \intertext{The same can be done with an n type conductor}
+        V_{TP}&=\frac{t_{ox}}{\epsilon_{ox}}\left( -\lvert Q_{SD}'(\textup{max})\rvert -Q_{ss}'\right)+\phi_{ms}+2\phi_{fn}\\
+        \intertext{with}
+        \phi_{ms}&=\phi_{m}'-\left( \chi'+\frac{E_g}{2e}-\phi_{fn} \right)\\
+        \lvert Q_{SD}'(\textup{max})\rvert&=eN_d x_{dT}\\
+        x_{dT}&=\sqrt{\frac{4\epsilon_s\phi_{fn}}{eN_d}}\\
+        \phi_{fn}&=V_t\ln\left( \frac{N_d}{n_i} \right)
+\end{align*}}
+        \column{0.5}
+\block{Capacitance-voltage characteristics}{
+
+\foldfig{width=0.4\colwidth}{mos_accumulation_energy_band}
+\foldfig{width=0.4\colwidth}{mos_depletion_energy_band}
+\foldfig{width=0.4\colwidth}{mos_inversion_energy_band}
+\foldfig{width=0.4\colwidth}{mos_low_frequency_capacitance_v_voltage}
+
+\begin{align*}
+        C&=\frac{dQ}{dV}\\
+        \intertext{$dQ$ is the magnitude of differential change in charge}
+        C'(acc)&=C_{ox}=\frac{\epsilon_{ox}}{t_{ox}}\\
+        \frac{1}{C'(depl)}&=\frac{1}{C_{ox}'}+\frac{1}{C_{SD}'}\\
+        C'(depl)&=\frac{C_{ox}C_{SD}'}{C_{ox}+C'_{SD}}\\
+        &=\frac{C_{ox}}{1+\frac{C_{ox}}{C_{SD}'}}\\
+        &=\frac{\epsilon_{ox}}{t_{ox}+\frac{\epsilon_{ox}}{\epsilon_s}x_{d}}\\
+        C'_{\textup{min}}&=\frac{\epsilon_{ox}}{t_{ox}+\frac{\epsilon_{ox}}{\epsilon_s}x_{dT}}\\
+        C'(inv)&=C_{ox}=\frac{\epsilon_{ox}}{t_{ox}}\\
+        C_{FB}'&=\frac{\epsilon_{ox}}{t_{ox}+\frac{\epsilon_{ox}}{\epsilon_s}\sqrt{V_t \frac{\epsilon_s}{eN_a}}}
+\end{align*}
+{Frequency effects}
+Two sources of electrons changing the charge density of the inversion layer: Diffusion of minority carrier electrons and thermal generation of electron hole pairs inside the space charge region.
+{Fixed oxide and interface charge effects}
+$V_{FB}=\phi_{ms}-\frac{Q_{SS}'}{C_{ox}}$
+This can move and smear out the C-V curve}
+\block{The basic MOSFET operation}{
+
+\foldfig{width=0.4\colwidth}{mosfet_n_channel_activated}
+
+There are four MOSFET types: n and p types and each can be in either enhancement(auto off) mode and depletion(auto on).
+
+\begin{align*}
+        I_d&=g_dV_{DS}\\
+        g_{d}&=\frac{W}{L}\mu_n\lvert Q_{n}'\rvert\\
+        V_{DS}(sat)&=V_{GS}-V_T\\
+        \intertext{for an n-chanel type in depletion}
+        I_{D}&=\frac{W\mu_{n}C_{ox}}{2L}\left[ 2\left( V_{GS}-V_{T} \right)V_{DS}-V_{DS}^2 \right]\\
+        &=\frac{k_n'}{2}\frac{W}{L}\left[ 2\left( V_{GS}-V_{T} \right)V_{DS}-V_{DS}^2 \right]\\
+        &=K_n\left[ 2\left( V_{GS}-V_{T} \right)V_{DS}-V_{DS}^2 \right]\\
+        \intertext{When the transistor is biased in the saturation region}
+        I_{D}&=\frac{W\mu_nC_{ox}}{2L}\left( V_{GS}-V_{T} \right)^2\\
+        &=\frac{k_n'}{2}\frac{W}{L}\left( V_{GS}-V_{T} \right)^2\\
+        &=K_n\left( V_{GS}-V_{T} \right)^2\\
+\end{align*}}
+
+\end{columns}
 \end{document}

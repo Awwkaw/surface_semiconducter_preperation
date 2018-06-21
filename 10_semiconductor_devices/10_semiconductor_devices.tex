@@ -8,11 +8,231 @@
 \maketitle
 \part{Fundamentals of the Metal-Oxide-Semiconductor Field-Effect Transistor (MOSFET)}
 \chapter{The two-terminal MOS structure}
+
+\foldfig{width=\columnwidth}{basic_mos_structure}
+\foldfig{width=\columnwidth}{mos_charge_distribution}
+
+The MOS structure is similar to that of the plate capacitor:
+\begin{align*}
+        C&=\frac{\epsilon}{d} \\
+        Q'&=C'V\\
+        E&=\frac{V}{d}\\
+        \intertext{By applying either a positive or negative voltage to the p type semiconductor, one can create an accumulation or depletion layer, the thickness of this layer is interesting (here depletion layer)}
+        \phi_{fp}&=V_t\ln\left( \frac{N_a}{n_i} \right)\\
+        x_d&=\sqrt{\frac{2\epsilon\phi_{s}}{eN_a}}\\
+        \intertext{$\phi_s$ is the surface potential: difference between $E_{Fi}$ at bulk and surface, the inversion threshold is when $\phi_s=-2\phi_{fp}$ and inversion occurs, it's the threshold voltage where the space charge region doesn't become larger, but more electrons can still go in the conducting band:}
+        x_{dT}&=\sqrt{\frac{4\epsilon\phi_{fp}}{eN_a}}\\
+        \intertext{Same holds for n types, (change $N_a$ with $N_d$.- Now one can find the surface charge density:}
+        n&=n_{i}\exp\left[ \frac{E_{F}-E_{Fi}}{kT} \right]\\
+        n_s&=n_{i}\exp\left[ \frac{\phi_{fp}+\Delta \phi_{s}}{V_t} \right]=\underbrace{n_i\exp\left( \frac{\phi_{fp}}{V_t} \right)}_{n_{st}}\exp\left( \frac{\Delta \phi_{s}}{V_t} \right)\quad \Delta\phi_s>2\phi_{fp}
+\end{align*}
+\section{Work function difference}
+
+\foldfig{width=\columnwidth}{mos_band_gap_through_oxide}
+
+\begin{align*}
+        e\phi_m'+eV_{ox0}&=e\chi'+\frac{E_g}{2}-e\phi_{s0}e\phi_{Jfp}\\
+        \intertext{$V_{ox}0$ is the potential drop across the oxide, $\phi_m'$ the modified metal work function}
+        V_{ox0}+\phi_{s0}&=-\left[ \phi_{m}'-\left( \chi'+\frac{E_g}{2e}+\phi_{fp} \right) \right]
+        \intertext{The metal semiconductor workfunction is then:}
+        \phi_{ms}&\equiv\left[ \phi_{m}'-\left( \chi'+\frac{E_g}{2e}+\phi_{fp} \right) \right]\\
+        \phi_{ms_{np}}&=\pm\left( \frac{E_g}{2e}-\phi_{fp} \right)\\
+\end{align*}
+\section{Flat-band voltage}
+The flat band voltage is the gate voltage that leads to no band bending.
+\begin{align*}
+        V_{ox0}+\phi_{s0}&=-\phi_{ms}\\
+        V_g&=\Delta V_{ox}+\Delta \phi_s=\left( V_{ox}-V_{ox0} \right) +\left( \phi_{s0}-\phi_{s0} \right)\\
+        &=V_{ox}+\phi_{s}+\phi_{ms}\\
+        \intertext{For flaatband}
+        Q_m'+Q_{ss}'&=0\\
+        V_{ox}&=\frac{Q_m'}{C_{ox}}\\
+        V_{ox}&=\frac{-Q_{ss}'}{C_{ox}}\\
+        V_G&=V_{FB}=\phi_{ms}-\frac{Q_{ss}'}{C_{ox}}\\
+\end{align*}
+\subsection{Threshold Voltage}
+\begin{align*}
+        Q_{mT}'+Q_{ss}'&=\lvert Q_{SD}'(\textup{max})\rvert\\
+        \lvert Q_{SD}'(\textup{max})\rvert&=eN_ax_{dT}\\
+        V_{G}&=V_{ox}+\phi_{s}+\phi_{ms}\\
+        \intertext{at threshold $V_G=V_{TN}$}
+        V_{TN}&=V_{xoT}02\phi_{fp}+\phi_{ms}\\
+        V_{oxT}&=\frac{Q_{mT}'}{C_{ox}}\\
+        &=\frac{1}{C_{ox}}\left( \lvert Q_{SD}'(\textup{max})\rvert -Q_{ss}' \right)\\
+        V_{TN}&=\frac{1}{C_{ox}}\left( \lvert Q_{SD}'(\textup{max})\rvert -Q_{ss}'\right)+\phi_{ms}+2\phi_{fp}\\
+        &=\frac{t_{ox}}{\epsilon_{ox}}\left( \lvert Q_{SD}'(\textup{max})\rvert -Q_{ss}'\right)+\phi_{ms}+2\phi_{fp}\\
+        &=\frac{\lvert Q_{SD}'(\textup{max}\rvert}{C_{ox}}+V_{FB}+2\phi_{fp}\\
+        \intertext{The same can be done with an n type conductor}
+        V_{TP}&=\frac{t_{ox}}{\epsilon_{ox}}\left( -\lvert Q_{SD}'(\textup{max})\rvert -Q_{ss}'\right)+\phi_{ms}+2\phi_{fn}\\
+        \intertext{with}
+        \phi_{ms}&=\phi_{m}'-\left( \chi'+\frac{E_g}{2e}-\phi_{fn} \right)\\
+        \lvert Q_{SD}'(\textup{max})\rvert&=eN_d x_{dT}\\
+        x_{dT}&=\sqrt{\frac{4\epsilon_s\phi_{fn}}{eN_d}}\\
+        \phi_{fn}&=V_t\ln\left( \frac{N_d}{n_i} \right)
+\end{align*}
 \chapter{Capacitance-voltage characteristics}
+
+\foldfig{width=\columnwidth}{mos_accumulation_energy_band}
+\foldfig{width=\columnwidth}{mos_depletion_energy_band}
+\foldfig{width=\columnwidth}{mos_inversion_energy_band}
+\foldfig{width=\columnwidth}{mos_low_frequency_capacitance_v_voltage}
+
+\begin{align*}
+        C&=\frac{dQ}{dV}\\
+        \intertext{$dQ$ is the magnitude of differential change in charge}
+        C'(acc)&=C_{ox}=\frac{\epsilon_{ox}}{t_{ox}}\\
+        \frac{1}{C'(depl)}&=\frac{1}{C_{ox}'}+\frac{1}{C_{SD}'}\\
+        C'(depl)&=\frac{C_{ox}C_{SD}'}{C_{ox}+C'_{SD}}\\
+        &=\frac{C_{ox}}{1+\frac{C_{ox}}{C_{SD}'}}\\
+        &=\frac{\epsilon_{ox}}{t_{ox}+\frac{\epsilon_{ox}}{\epsilon_s}x_{d}}\\
+        C'_{\textup{min}}&=\frac{\epsilon_{ox}}{t_{ox}+\frac{\epsilon_{ox}}{\epsilon_s}x_{dT}}\\
+        C'(inv)&=C_{ox}=\frac{\epsilon_{ox}}{t_{ox}}\\
+        C_{FB}'&=\frac{\epsilon_{ox}}{t_{ox}+\frac{\epsilon_{ox}}{\epsilon_s}\sqrt{V_t \frac{\epsilon_s}{eN_a}}}
+\end{align*}
+\section{Frequency effects}
+Two sources of electrons changing the charge density of the inversion layer: Diffusion of minority carrier electrons and thermal generation of electron hole pairs inside the space charge region.
+\section{Fixed oxide and interface charge effects}
+$V_{FB}=\phi_{ms}-\frac{Q_{SS}'}{C_{ox}}$
+This can move and smear out the C-V curve
 \chapter{The basic MOSFET operation}
+
+\foldfig{width=\columnwidth}{mosfet_n_channel_activated}
+
+There are four MOSFET types: n and p types and each can be in either enhancement(auto off) mode and depletion(auto on).
+
+\begin{align*}
+        I_d&=g_dV_{DS}\\
+        g_{d}&=\frac{W}{L}\mu_n\lvert Q_{n}'\rvert\\
+        V_{DS}(sat)&=V_{GS}-V_T\\
+        \intertext{for an n-chanel type in depletion}
+        I_{D}&=\frac{W\mu_{n}C_{ox}}{2L}\left[ 2\left( V_{GS}-V_{T} \right)V_{DS}-V_{DS}^2 \right]\\
+        &=\frac{k_n'}{2}\frac{W}{L}\left[ 2\left( V_{GS}-V_{T} \right)V_{DS}-V_{DS}^2 \right]\\
+        &=K_n\left[ 2\left( V_{GS}-V_{T} \right)V_{DS}-V_{DS}^2 \right]\\
+        \intertext{When the transistor is biased in the saturation region}
+        I_{D}&=\frac{W\mu_nC_{ox}}{2L}\left( V_{GS}-V_{T} \right)^2\\
+        &=\frac{k_n'}{2}\frac{W}{L}\left( V_{GS}-V_{T} \right)^2\\
+        &=K_n\left( V_{GS}-V_{T} \right)^2\\
+\end{align*}
 \part{Optical devices}
 \chapter{Optical absorption}
+\begin{align*}
+        \lambda&?\frac{c}{\nu}=\frac{hc}{E}\\
+        \intertext{When light goes thorugh a solar cell, if $E_{textup}<E_g$ The light is not absorbbed, otherwise an electron is forced into the conduting band.}
+        E_{ads}&=\alpha I_{v}(x)dx\\
+        \intertext{Is the energy adsorbed pr time. Iv is the photon flux, $\alpha$ the adsorption coeficcient., from fig 14.2}
+        I_{\nu}(x+dx)-I_{\nu}(x)&=\frac{dI_{\nu}(x)}{dx}\cdot dx=-\alpha I_{\nu}(x)dx\\
+        \frac{dI_{\nu}(x)}{dx}-\alpha I_{\nu}(x)\\
+        \intertext{Initially $I_{\nu}(0)=I_{\nu 0}$}
+        I_{\nu}(x)&=I_{\nu 0}e^{-\alpha x}\\
+        \intertext{Electron--Hole pair generation:}
+        g'&=\frac{\alpha I_{\nu}(x)}{h\nu}\\
+\end{align*}
 \chapter{Solar cells}
+
+\foldfig{width=\columnwidth}{solar_cell_structure}
+
+A solar cell is a pn junction, with no voltage apllied.
+Consider a pn junction with a load:
+\begin{align*}
+        I&=I_{L}-I_{F}=I_{L}-I_{S}\left[ \exp\left( \frac{V}{V_t} \right)-1 \right]\\
+        \intertext{Where $I_L$ is the photocurrent generated by the junction sweeping out the electrons generated in the space charge region, $I_{F}$ is the forward bias generated by $I_{L}$ going over the resistor. There are two limiting cases, Short circuit ($R=0$, $V=0$):}
+        I&=I_{SC}&=I_{L}\\
+        \intertext{And $R\rightarrow\infty$}
+        I&=0=I_{L}-I_{S}\left[ \exp\left( \frac{V}{V_t} \right)-1 \right]\\
+        V_{OC}&=V_t\ln\left( 1+\frac{I_L}{I_S} \right)\\
+        P&=IV=I_{L}V-I_{_S}\left[ \exp\left( \frac{V}{V_t} \right)-1 \right]V\\
+        \frac{dP}{dV}&=0=I_{L}-I_{_S}\left[ \exp\left( \frac{V_m}{V_t} \right)-1 \right]V-I_{S}\frac{V_{m}}{V_{t}}\exp\left( \frac{V_{m}}{V_{t}} \right)\\
+        1+\frac{I_L}{I_S}&=\left( 1+\frac{V_m}{V_t} \right)\exp\left( \frac{V_m}{V_t} \right)\\
+        \intertext{The efficiency in solar cells is:}
+        \eta&=\frac{P_m}{P_{in}}\times\SI{100}{\percent}\\
+        &=\frac{I_mV_m}{P_{in}}\times \SI{100}{\percent}\\
+        \textup{fillfactor} &= \frac{I_mV_m}{I_{SC}V_{OV}}\approx 0.7--0.8\\
+\end{align*}
+To increase efficiency the solar cells multiple band gaps must be used. The real efficiency $\approx \SIrange{10}{15}{\percent}$
+
+\section{Nonuniform absorption effects: }
+\begin{align*}
+        \textup{number of adsorped photons}&=\alpha\Phi_{0}\\
+        G_{L}&=\alpha(\lambda)\Phi_0(\lambda)\left[ 1-R(\lambda) \right]e^{-\alpha(\lambda)x}
+\end{align*}
 \chapter{Photoluminescence and Electroluminescence}
+Electrons  And holes can recombine in many ways, through doners/accepters, inbetween them nand through traps. As well as directly. The emmision range is:
+\begin{align*}
+        I(\nu)\propto \nu^2(h\nu-E_{g})^{\frac{1}{2}}\exp\left[ -\frac{h\nu-E_g}{kT} \right]\\
+        \intertext{Efficiency: }
+        \eta_{q}&=\frac{R_r}{R}\\
+        \intertext{$R_{r}$ is the radiating recombination rate}
+        &=\frac{\tau_{nr}}{\tau_{nr}+\tau_{r}}\\
+        \intertext{$\tau_{nr}$ is nonradiative and $\tau_r$ is radiative}
+        R_r&=Bnp\\
+\end{align*}
 \chapter{Light emitting diodes}
+
+\foldfig{width=\columnwidth}{led_structure}
+
+
+\begin{align*}
+        \lambda&=\frac{hc}{E_g}\\
+        \intertext{With applied voltage, minority excess carriers are injected and spewt to the natural area. If it's direct band to band light is emitted. (Ga is on p side). Internal quantum efficiency is the fraction of diode current that produces luminecence. three components are important:}
+        J_{n}&=\frac{eD_nn_{p0}}{L_n}\left[ \exp\left( \frac{V}{V_t} \right)-1 \right]\\
+        J_{p}&=\frac{eD_pp_{n0}}{L_p}\left[ \exp\left( \frac{V}{V_t} \right)-1 \right]\\
+        J_{r}&=\frac{en_iW}{2\tau_0}\left[ \exp\left( \frac{V}{2V_t} \right)-1 \right]\\
+        \gamma &= \frac{J_n}{J_n+J_p+J_R}\\
+        \intertext{$\gamma$ is the injection efficiency, now use a $n^+p$ diode to make $J_n$ largest}
+        R_r&=\frac{\delta n}{\tau_{r}}\\
+        R_{nr}&=\frac{\delta n}{\tau_{nr}}\\
+        R&= R_{r}+R_{nr}=\frac{\delta n}{\tau}=\frac{\delta n_{r}}{\tau_{r}} +\frac{\delta n_{nr}}{\tau_{nr}}\\
+        \eta&=\frac{R_r}{R_r+R_{nr}}=\frac{\tau}{\tau_r}\\
+        \eta_i&=\gamma\eta\\
+        \intertext{External quantum efficiency: The fraction of generated photons that are \emph{emitted}}
+        \Gamma&=\left( \frac{\bar{n}_2 - \bar{n}_1}{\bar{n}_2+\bar{n}_1} \right)^2
+        \intertext{Is the Fresnel loss, and describes the light lost through reflaction ($\bar{n}_{1}$ refraction index of air, $\bar{n}_{2}$ of the semiconductor). The critical angle:}
+        \Theta_c&=\sin^{-1}\left( \frac{\bar{n}_1}{\bar{n}_2} \right)
+\end{align*}
+
 \end{document}
+%This should cover chapter 10.1--10.3.2, 14.1--14.2.3 and 14.4--14.5
+%pates 372--410 + 619--628 + 643--654
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
